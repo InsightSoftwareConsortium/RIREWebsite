@@ -1,0 +1,1554 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Get table data from RIRE Vanderbilt results page -  File Exchange - MATLAB Central</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script id='analyticsDigitalData'>
+    digitalData = {
+        'pageInstanceID' : 'Get table data from RIRE Vanderbilt results page - File Exchange - MATLAB Central',
+        'page' : {
+            'pageInfo' : {
+                'pageID' : '/matlabcentral/fileexchange/32895-get-table-data-from-rire-vanderbilt-results-page',
+                'destinationURL' : 'https://www.mathworks.com/matlabcentral/fileexchange/32895-get-table-data-from-rire-vanderbilt-results-page'
+            },
+            'category' : {
+                'primaryCategory' : 'matlabcentral',
+                'subCategory1' : 'matlabcentral/fileexchange',
+                'subCategory2' : '',
+            },
+            'attributes' : {"descriptonCode":"FX_32895","category":["Tables"]}
+        },
+        'product' : [{ 'productInfo' : {} }],
+        'component' : [],
+        'events' : [],
+        'user': []
+    };
+</script>
+<!-- BEGIN Adobe DTM -->
+<script src="//assets.adobedtm.com/d0cc0600946eb3957f703b9fe43c3590597a8c2c/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js"></script>
+<!-- END Adobe DTM -->
+<link href="/includes_content/responsive/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/includes_content/responsive/css/site6.css?201507" rel="stylesheet" type="text/css">
+<link href="/includes_content/responsive/css/site6_lg.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+<link href="/includes_content/responsive/css/site6_md.css" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199px)">
+<link href="/includes_content/responsive/css/site6_sm+xs.css" rel="stylesheet" media="screen and (max-width: 991px)">
+<link href="/includes_content/responsive/css/site6_sm.css" rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 991px)">
+<link href="/includes_content/responsive/css/site6_xs.css" rel="stylesheet" media="screen and (max-width: 767px)">
+<link href="/includes_content/responsive/css/site6_print.css" rel="stylesheet" type="text/css" media="print">
+<link rel="stylesheet" href="/includes_content/responsive/css/templates/mlc.css" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/templates/mlc_ie8.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/templates/mlc_ie9.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<link rel="stylesheet" href="/includes_content/responsive/css/apps/fileexchange/fileexchange.css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/apps/fileexchange/fileexchange_ie8.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if IE 9]>
+<link href="/includes_content/responsive/css/apps/fileexchange/fileexchange_ie9.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<script src="/includes_content/responsive/scripts/jquery/jquery-latest.js"></script>
+<script src="/includes_content/responsive/scripts/bootstrap/bootstrap.min.js"></script>
+<script src="/includes_content/responsive/scripts/global.js"></script>
+<script src="/includes_content/responsive/scripts/anchor.js"></script>
+<link href="https://use.typekit.net/xvy5baa.css?display=swap" rel="stylesheet">
+<link href="/includes_content/responsive/fonts/mathworks.woff" rel="preload" as="font" type="font/woff" crossorigin>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="L3jg+nCnqN5Y8sEBtc8eTAk4LhtI2DTl+tsuCkiJIoU9tNakegRVTlap/7AXfRTJNdCn076VeWJkeZ9fuSlqWA==" />
+<script src="/matlabcentral/fileexchange/assets/application-6656300507471dc1db58c37dc2a4f18bf8fa3733d0aa2862e949c219e7eb7e5e.js"></script>
+<link rel="stylesheet" media="screen" href="/matlabcentral/fileexchange/assets/application-00637545ab0aaeebab1900c30088afee1bbb964d3cb86321ff92f4f2ab2387f2.css" />
+<link rel="stylesheet" media="screen" href="/matlabcentral/fileexchange/assets/ui/application-b1b2e68dd4f081e8668be8584646c228985cf8d37200dbdaf725c3d114d12a82.css" />
+<meta property="og:title" content="Get table data from RIRE Vanderbilt results page" /><meta property="og:type" content="website" /><meta property="og:url" content="https://www.mathworks.com/matlabcentral/fileexchange/32895-get-table-data-from-rire-vanderbilt-results-page" /><meta property="og:image" content="https://www.mathworks.com/responsive_image/165/120/0/0/0/cache/matlabcentral/images/default_screenshot.jpg" /><meta property="og:description" content="Function takes the url of RIRE results page and returns the structure with data from the tables." />
+<link rel="canonical" href="https://www.mathworks.com/matlabcentral/fileexchange/32895-get-table-data-from-rire-vanderbilt-results-page" />
+<script src="https://www.mathworks.com/matlabcentral/jscript/profile_card_v1.2.js" data-app-name="fileexchange"></script>
+<link href="/includes_content/responsive/css/site6_offcanvas.css" rel="stylesheet" type="text/css">
+<!--[if IE 8]>
+<link href="/includes_content/responsive/css/site6_offcanvas_ie8.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<script type="text/javascript" src="/includes_content/nextgen/scripts/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="/includes_content/domainSelect/akamai-country-code.js"></script>
+<script type="text/javascript">
+var domainCountryCodeMap = new Map();
+var countryCodeToDomainMap = new Map();
+domainCountryCodeMap.set('www.mathworks.com', 'www');
+countryCodeToDomainMap.set('www','www.mathworks.com')
+domainCountryCodeMap.set('www.mathworks.com', 'www');
+countryCodeToDomainMap.set('www','www.mathworks.com')
+domainCountryCodeMap.set('la.mathworks.com', 'la');
+countryCodeToDomainMap.set('la','la.mathworks.com')
+domainCountryCodeMap.set('au.mathworks.com', 'au');
+countryCodeToDomainMap.set('au','au.mathworks.com')
+domainCountryCodeMap.set('de.mathworks.com', 'de');
+countryCodeToDomainMap.set('de','de.mathworks.com')
+domainCountryCodeMap.set('nl.mathworks.com', 'nl');
+countryCodeToDomainMap.set('nl','nl.mathworks.com')
+domainCountryCodeMap.set('ww2.mathworks.cn', 'ww2');
+countryCodeToDomainMap.set('ww2','ww2.mathworks.cn')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('fr.mathworks.com', 'fr');
+countryCodeToDomainMap.set('fr','fr.mathworks.com')
+domainCountryCodeMap.set('de.mathworks.com', 'de');
+countryCodeToDomainMap.set('de','de.mathworks.com')
+domainCountryCodeMap.set('in.mathworks.com', 'in');
+countryCodeToDomainMap.set('in','in.mathworks.com')
+domainCountryCodeMap.set('uk.mathworks.com', 'uk');
+countryCodeToDomainMap.set('uk','uk.mathworks.com')
+domainCountryCodeMap.set('it.mathworks.com', 'it');
+countryCodeToDomainMap.set('it','it.mathworks.com')
+domainCountryCodeMap.set('jp.mathworks.com', 'jp');
+countryCodeToDomainMap.set('jp','jp.mathworks.com')
+domainCountryCodeMap.set('kr.mathworks.com', 'kr');
+countryCodeToDomainMap.set('kr','kr.mathworks.com')
+domainCountryCodeMap.set('nl.mathworks.com', 'nl');
+countryCodeToDomainMap.set('nl','nl.mathworks.com')
+domainCountryCodeMap.set('nl.mathworks.com', 'nl');
+countryCodeToDomainMap.set('nl','nl.mathworks.com')
+domainCountryCodeMap.set('au.mathworks.com', 'au');
+countryCodeToDomainMap.set('au','au.mathworks.com')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('www.mathworks.com', 'www');
+countryCodeToDomainMap.set('www','www.mathworks.com')
+domainCountryCodeMap.set('es.mathworks.com', 'es');
+countryCodeToDomainMap.set('es','es.mathworks.com')
+domainCountryCodeMap.set('se.mathworks.com', 'se');
+countryCodeToDomainMap.set('se','se.mathworks.com')
+domainCountryCodeMap.set('ch.mathworks.com', 'ch');
+countryCodeToDomainMap.set('ch','ch.mathworks.com')
+domainCountryCodeMap.set('uk.mathworks.com', 'uk');
+countryCodeToDomainMap.set('uk','uk.mathworks.com')
+var countrySubdomains = {
+US: {name: 'United States', subdomain: 'www'},
+AD: {name: 'Andorra', subdomain: 'es'},
+AR: {name: 'Argentina', subdomain: 'la'},
+AU: {name: 'Australia', subdomain: 'au'},
+AT: {name: 'Austria', subdomain: 'de'},
+BE: {name: 'Belgium', subdomain: 'nl'},
+BO: {name: 'Bolivia', subdomain: 'la'},
+BV: {name: 'Bouvet Islands', subdomain: 'se'},
+CA: {name: 'Canada', subdomain: 'www'},
+CL: {name: 'Chile', subdomain: 'la'},
+CN: {name: 'China', subdomain: 'cn'},
+CX: {name: 'Christmas Island', subdomain: 'au'},
+CC: {name: 'Cocos-Keeling Islands', subdomain: 'au'},
+CO: {name: 'Colombia', subdomain: 'la'},
+CR: {name: 'Costa Rica', subdomain: 'la'},
+DK: {name: 'Denmark', subdomain: 'se'},
+DO: {name: 'Dominican Republic', subdomain: 'la'},
+EC: {name: 'Ecuador', subdomain: 'la'},
+SV: {name: 'El Salvador', subdomain: 'la'},
+EE: {name: 'Estonia', subdomain: 'se'},
+FO: {name: 'Faroe Islands', subdomain: 'se'},
+FJ: {name: 'Fiji', subdomain: 'au'},
+FI: {name: 'Finland', subdomain: 'se'},
+FR: {name: 'France', subdomain: 'fr'},
+GF: {name: 'French Guiana', subdomain: 'fr'},
+PF: {name: 'French Polynesia', subdomain: 'fr'},
+DE: {name: 'Germany', subdomain: 'de'},
+GL: {name: 'Greenland', subdomain: 'se'},
+GP: {name: 'Guadalupe', subdomain: 'fr'},
+GT: {name: 'Guatemala', subdomain: 'la'},
+HN: {name: 'Honduras', subdomain: 'la'},
+IS: {name: 'Iceland', subdomain: 'se'},
+IN: {name: 'India', subdomain: 'in'},
+IE: {name: 'Ireland', subdomain: 'uk'},
+IT: {name: 'Italy', subdomain: 'it'},
+JP: {name: 'Japan', subdomain: 'jp'},
+KR: {name: 'Korea', subdomain: 'kr'},
+LV: {name: 'Latvia', subdomain: 'se'},
+LI: {name: 'Liechtenstein', subdomain: 'ch'},
+LT: {name: 'Lithuania', subdomain: 'se'},
+LU: {name: 'Luxembourg', subdomain: 'nl'},
+MQ: {name: 'Martinique', subdomain: 'fr'},
+YT: {name: 'Mayotte Island', subdomain: 'fr'},
+MX: {name: 'Mexico', subdomain: 'la'},
+MC: {name: 'Monaco', subdomain: 'fr'},
+NL: {name: 'Netherlands', subdomain: 'nl'},
+NC: {name: 'New Caledonia', subdomain: 'fr'},
+NZ: {name: 'New Zealand', subdomain: 'au'},
+NI: {name: 'Nicaragua', subdomain: 'la'},
+NO: {name: 'Norway', subdomain: 'se'},
+PA: {name: 'Panama', subdomain: 'la'},
+PG: {name: 'Papua New Guinea', subdomain: 'au'},
+PY: {name: 'Paraguay', subdomain: 'la'},
+PE: {name: 'Peru', subdomain: 'la'},
+PT: {name: 'Portugal', subdomain: 'www'},
+PR: {name: 'Puerto Rico', subdomain: 'la'},
+RE: {name: 'Reunion Island', subdomain: 'fr'},
+ES: {name: 'Spain', subdomain: 'es'},
+LK: {name: 'Sri Lanka', subdomain: 'in'},
+SE: {name: 'Sweden', subdomain: 'se'},
+CH: {name: 'Switzerland', subdomain: 'ch'},
+GB: {name: 'United Kingdom', subdomain: 'uk'},
+UY: {name: 'Uruguay', subdomain: 'la'},
+VA: {name: 'Vatican City', subdomain: 'it'},
+VE: {name: 'Venezuela', subdomain: 'la'},
+};
+var domainUtils = {
+isExemptUrl: function (url) {
+if(window.overrideDomainSelector){
+return true;
+}
+var exemptions = [
+'/api/parts/',
+'nocookie=true',
+'client=addons',
+'requestedDomain'
+];
+return exemptions.some(function (exemption) {
+return url.indexOf(exemption) != -1;
+});
+},
+endsWith: function( str, suffix ) {
+return str.substring( str.length - suffix.length, str.length ) === suffix;
+},
+getDomain: function (url) {
+var segments = url.split('/');
+return segments[2];
+},
+getSubdomain: function (domain) {
+return domainCountryCodeMap.get(domain);
+},
+setCookies: function (domain, lang) {
+var domainCookie = 'mathworks.com';
+if (this.endsWith(location.host, 'mathworks.cn')) {
+domainCookie = 'mathworks.cn';
+}
+var selectedSubdomain = this.getSubdomain(domain);
+if (this.endsWith(domain, 'mathworks.cn')) {
+selectedSubdomain = 'cn';
+}
+if (selectedSubdomain === 'www') {
+// This is what ePS did in EQUUS and Ruby, so...
+// we're just following suit.
+selectedSubdomain = 'us';
+}
+if (selectedSubdomain !== 'cn' && selectedSubdomain !== 'ch') {
+lang = '';
+}
+var cookieNames = this.getCookieNames(domain);
+var expires = new Date();
+expires.setFullYear(expires.getFullYear() + 68);
+var myJSON = JSON.stringify({
+domain: selectedSubdomain,
+lang: lang,
+v: 2
+});
+$.cookie(cookieNames.mwaPrefsCookieName, myJSON, {path: '/', expires: 20*365, domain: domainCookie});
+},
+getCookieNames: function (domain) {
+var mwaLoginCookieName = 'mwa';
+var mwaPrefsCookieName = 'mwa_prefs';
+var subdomainSuffix = '';
+if (subdomainSuffix != "") {
+mwaLoginCookieName = mwaLoginCookieName + subdomainSuffix;
+mwaPrefsCookieName = mwaPrefsCookieName + subdomainSuffix;
+}
+return {
+mwaLoginCookieName: mwaLoginCookieName,
+mwaPrefsCookieName: mwaPrefsCookieName,
+};
+},
+switchDomain: function (targetDomain, targetLang) {
+var targetUri = location.pathname;
+targetLang = this.getValidLang(this.getSubdomain(targetDomain), targetLang);
+var url = '//' + targetDomain;
+url += targetUri + location.search;
+url = url.replace(/requestedDomain=[a-z]?[a-z]?&?/, '');
+url = url.replace(/\&$/, '');
+url = url.replace(/\?$/, '');
+var requestedDomainParam = 'requestedDomain=' + targetLang;
+if (url.indexOf('?') > -1) {
+url = url + '&' + requestedDomainParam;
+} else {
+url = url + '?' + requestedDomainParam;
+}
+window.location = url;
+},
+getPrefCookie: function(currentDomain) {
+var cookieNames = this.getCookieNames(currentDomain);
+// regex from: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+var cookieRegex = new RegExp("(?:(?:^|.*;\\s*)"+cookieNames.mwaPrefsCookieName+"\\s*\\=\\s*([^;]*).*$)|^.*$");
+if (document.cookie) {
+var cookieValue = document.cookie.replace(cookieRegex, "$1");
+if (cookieValue) {
+return JSON.parse(decodeURIComponent(cookieValue));
+}
+}
+return "";
+},
+getPrefDomain: function (currentDomain) {
+var mwaPrefsCookieJsonObject = this.getPrefCookie(currentDomain);
+var visitorPrefDomain;
+if (!!mwaPrefsCookieJsonObject) {
+visitorPrefDomain = mwaPrefsCookieJsonObject.domain;
+if (visitorPrefDomain === 'us') {
+visitorPrefDomain = 'www';
+}else if (visitorPrefDomain === 'cn') {
+visitorPrefDomain = 'ww2';
+}
+}
+return countryCodeToDomainMap.get(visitorPrefDomain);
+},
+getPrefLang: function (currentDomain) {
+var mwaPrefsCookieJsonObject = this.getPrefCookie(currentDomain);
+var multilingualDomainLanguageSupport = {};
+multilingualDomainLanguageSupport['ch'] = ['en','de','fr'];
+multilingualDomainLanguageSupport['cn'] = ['zh','en'];
+var currentDomainLangOptions = multilingualDomainLanguageSupport[mwaPrefsCookieJsonObject.domain];
+if (currentDomainLangOptions) {
+var cookiePrefLang = mwaPrefsCookieJsonObject.lang;
+if (currentDomainLangOptions.indexOf(cookiePrefLang) >= 0) {
+return cookiePrefLang;
+} else {
+return currentDomainLangOptions[0];
+}
+}
+return '';
+},
+getCookieVersion: function (currentDomain) {
+var mwaPrefsCookieJsonObject = this.getPrefCookie(currentDomain);
+return mwaPrefsCookieJsonObject.v;
+},
+getTargetDomainForCookies: function() {
+var targetDomain = "";
+if (this.endsWith(location.host, 'mathworks.cn')) {
+targetDomain = window.location.protocol + "//" + countryCodeToDomainMap.get('www');
+}else{
+targetDomain = window.location.protocol + "//" + countryCodeToDomainMap.get('ww2');
+}
+return targetDomain;
+},
+getValidLang: function (subdomain, lang) {
+var multilingualDomainLanguageSupport = {};
+multilingualDomainLanguageSupport['ch'] = ['en','de','fr'];
+multilingualDomainLanguageSupport['cn'] = ['zh','en'];
+multilingualDomainLanguageSupport['ww2'] = ['zh','en'];
+var currentDomainLangOptions = multilingualDomainLanguageSupport[subdomain];
+if (currentDomainLangOptions) {
+if (currentDomainLangOptions.indexOf(lang) >= 0) {
+return lang;
+} else {
+return currentDomainLangOptions[0];
+}
+}
+return '';
+},
+isDefaultLang: function (subdomain, lang) {
+var multilingualDomainLanguageDefault = {};
+multilingualDomainLanguageDefault['ch'] = 'en';
+multilingualDomainLanguageDefault['cn'] = 'zh';
+multilingualDomainLanguageDefault['ww2'] = 'zh';
+var currentDomainLang = multilingualDomainLanguageDefault[subdomain];
+if (currentDomainLang) {
+if (currentDomainLang === lang) {
+return true;
+} else {
+return false;
+}
+} else if (lang) {
+return false;
+}
+return true;
+}
+};
+$(window).on('load', function() {
+var currentUrl = window.location.href;
+var currentDomain = domainUtils.getDomain(currentUrl);
+var currentSubdomain = domainUtils.getSubdomain(currentDomain);
+var requestedDomainLangRegEx = RegExp('[?&]requestedDomain=([^&]*)').exec(window.location.search);
+if (requestedDomainLangRegEx) {
+var setLang = domainUtils.getValidLang(currentSubdomain, requestedDomainLangRegEx[1])
+domainUtils.setCookies(currentDomain, setLang);
+var URLWithoutRequestedDomain = window.location.href.replace(/requestedDomain=[a-z]?[a-z]?&?/, '');
+URLWithoutRequestedDomain = URLWithoutRequestedDomain.replace(/\&$/, '');
+URLWithoutRequestedDomain = URLWithoutRequestedDomain.replace(/\?$/, '');
+history.replaceState({}, document.title, URLWithoutRequestedDomain);
+window.location = URLWithoutRequestedDomain;
+}
+$('body').on('click', '.domain_selector_link', function (e) {
+e.preventDefault();
+var selectedDomain = domainUtils.getDomain(this.href);
+var selectedLang = $(this).data('lang');
+domainUtils.setCookies(selectedDomain, selectedLang);
+domainUtils.switchDomain(selectedDomain, selectedLang);
+});
+var currentCountryText =
+$('a[data-subdomain=\'' + currentSubdomain + '\'][data-default-lang=\'true\'][data-selected-text]')
+.data('selected-text');
+$('#countrySelectorButtonText').text(currentCountryText);
+var visitorPrefDomain = domainUtils.getPrefDomain(currentDomain);
+var visitorPrefLang = domainUtils.getPrefLang(currentDomain);
+var akamaiCountryCode;
+var akamaiprofile = CQ_Analytics.ClientContextMgr.getRegisteredStore('akamaiprofile');
+if (akamaiprofile) {
+akamaiCountryCode = akamaiprofile.getProperty('countryCode');
+}
+var recommendedSubdomain;
+var recommendedLink;
+if (akamaiCountryCode) {
+if (countrySubdomains[akamaiCountryCode] !== undefined) {
+recommendedSubdomain = countrySubdomains[akamaiCountryCode].subdomain;
+} else {
+recommendedSubdomain = 'www';
+}
+if (recommendedSubdomain === 'us') {
+recommendedSubdomain = 'www';
+}else if (recommendedSubdomain === 'cn') {
+recommendedSubdomain = 'ww2';
+}
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-recommended-text]');
+} else if (visitorPrefDomain) {
+recommendedSubdomain = domainUtils.getSubdomain(visitorPrefDomain);
+if (visitorPrefLang) {
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-lang=\'' + visitorPrefLang + '\']');
+} else {
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-default-lang=\'true\']');
+}
+}
+if (!recommendedLink) {
+recommendedSubdomain = 'www';
+recommendedLink = $('a[data-subdomain=\'' + recommendedSubdomain + '\'][data-recommended-text]');
+}
+$('.recommended-country').text(recommendedLink.data('recommended-text'));
+$('#recommended_domain_button').attr('href', recommendedLink.attr('href'));
+$('#recommended_domain_button').attr('data-lang', recommendedLink.attr('data-lang'));
+$('body').on('click', '#recommended_domain_button', function (e) {
+e.preventDefault();
+var selectedDomain = domainUtils.getDomain(this.href);
+var selectedLang = $(this).data('lang');
+domainUtils.setCookies(selectedDomain, selectedLang);
+domainUtils.switchDomain(selectedDomain, selectedLang);
+});
+$('a.worldwide_link').attr('href', recommendedLink.attr('href'));
+$('a.worldwide_link').data('lang', recommendedLink.data('lang'));
+$('body').on('click', 'a.worldwide_link', function (e) {
+e.preventDefault();
+var selectedDomain = domainUtils.getDomain(this.href);
+var selectedLang = $(this).data('lang');
+domainUtils.setCookies(selectedDomain, selectedLang);
+var href = e.target.getAttribute('href');
+var worldwideLink = '/company/worldwide.html?s_tid=dmselect_cta&requestedDomain=';
+if(href) {
+location.href = href + worldwideLink;
+}
+});
+if (akamaiCountryCode === 'CN') {
+$('#china_performance_alert').show();
+}
+var crossDomain = "";
+if(domainUtils.endsWith(currentDomain, '.mathworks.cn')){
+crossDomain = countryCodeToDomainMap.get('www');
+}else{
+crossDomain = countryCodeToDomainMap.get('ww2');
+}
+if ((!domainUtils.endsWith(currentDomain, '.mathworks.com') && !domainUtils.endsWith(currentDomain, '.mathworks.cn')) || domainUtils.isExemptUrl(currentUrl)) {
+return;
+}
+if (!visitorPrefDomain) {
+if (akamaiCountryCode) {
+var akamaiDeterminedSubdomain = $('a[data-country-code=\'' + akamaiCountryCode + '\']').data('subdomain');
+if ((akamaiCountryCode.toLowerCase() === currentSubdomain) || (akamaiDeterminedSubdomain === currentSubdomain)) {
+domainUtils.setCookies(currentDomain, "");
+} else {
+$('#country-unselected').modal('show');
+}
+return;
+}
+if (currentSubdomain === 'www') {
+domainUtils.setCookies(currentDomain, '');
+} else {
+$('#country-unselected').modal('show');
+}
+} else if (akamaiCountryCode === 'CN' && !(visitorPrefDomain === 'CN') && !domainUtils.getCookieVersion(currentDomain)) {
+$('#country-unselected').modal('show');
+}
+});
+</script> <script src="/includes_content/responsive/scripts/mwa/global_nav.js"></script>
+
+                          <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="LERXA-6VNES-W6PXS-U8C7F-BXSZH",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"LERXA-6VNES-W6PXS-U8C7F-BXSZH",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="ilbp2fdijrsh2yd7gria-f-184c7415d-clientnsv4-s.akamaihd.net",i={"ak.v":"31","ak.cp":"31027","ak.ai":parseInt("195948",10),"ak.ol":"0","ak.cr":92,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"81e966c","ak.r":34806,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"66.194.253.0","ak.cport":8737,"ak.gh":"184.51.149.53","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"reno","ak.t":"1618949200","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==pnaOcquZwIPeOhF1KrcR9VY01ONcXUSMQoaHatZB4q/uv1cRC/UCXTkE2bFcLm6REZk+kYULoDB+xFqUM6Tx3xbBL1CpqFyBNWSmjoyVd/Q8KciK/aUZ0F4spgvlcrhFFalky+Ff9BrKsKtqGpSs9/zncf0wEvyB9+lyC5AqdvnMlIzrKO6gWp7c0eRM6IuXQ380QGYsaf9yJoDMIw7B+zprjYMFdsve6JVVhIPZHhk8MQMexcW5IvqqC17/ts+CgG7w4ERkA7cFi+IA76FoRK+wNR2Aoi6c7A8JAQ9vtbcAwRCN3oCcmxkjk7teHQJRvVDYJMLQC9gLOzHXWE6r9t2ssiPKd40w8PErtwTRWW537J1tRqvzbam5ENVAPCkuc7AgmWYPS9fepv6tXZgqf+TbTibjepmn8NyYFi8mrgQ=","ak.pv":"119","ak.dpoabenc":""};if(""!==t)i["ak.ruds"]=t;var _={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))i["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!_.i){var a=BOOMR.subscribe;a("before_beacon",_.av,null,null),a("onbeacon",_.rv,null,null),_.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+  
+<body id="responsive_b" class="mlc">
+  <a class="skip_link sr-only" href="#content_container">Skip to content</a>
+
+  <!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile" translate="no">
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-3">
+<button type="button" class="navbar-toggle topnav_toggle" data-toggle="collapse" data-target="#topnav_collapse">
+<span class="sr-only">Toggle Main Navigation</span>
+<span class="icon-menu"></span>
+</button>
+</div>
+<div class="col-xs-6">
+<div class="text-center">
+<a href="https://www.mathworks.com?s_tid=gn_logo" class="svg_link navbar-brand">
+<img src="/images/responsive/global/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+</div>
+<div class="col-xs-3">
+<div class="matrix_affordance_container_mobile" id="matrix_affordance_container_mobile"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row visible-xs visible-sm">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse" id="topnav_collapse">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="https://www.mathworks.com/products.html?s_tid=gn_ps" >Products</a></li>
+<li class="topnav_solutions "><a href="https://www.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="https://www.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="https://www.mathworks.com/support.html?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="https://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="https://www.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+<li class="headernav_store"><a href="https://www.mathworks.com/products/get-matlab.html?s_tid=gn_getml">Get MATLAB</a></li>
+</ul>
+</div>
+<div class="navbar-collapse collapse" id="matrix_collapse">
+<div class="matrix_menu_container_mobile" id="matrix_menu_container_mobile"></div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop" translate="no">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-9">
+<div class="navbar-header">
+<div class="logo_container hidden-xs hidden-sm">
+<a href="https://www.mathworks.com?s_tid=gn_logo" class="svg_link pull-left">
+<img src="/images/responsive/global/pic-header-mathworks-logo.svg" class="mw_logo" alt="MathWorks">
+</a>
+</div>
+<div class="navbar-collapse collapse hidden-xs hidden-sm">
+<ul class="nav navbar-nav" id="topnav">
+<li class="topnav_products "><a href="https://www.mathworks.com/products.html?s_tid=gn_ps" >Products</a></li>
+<li class="topnav_solutions "><a href="https://www.mathworks.com/solutions.html?s_tid=gn_sol">Solutions</a></li>
+<li class="topnav_academia "><a href="https://www.mathworks.com/academia.html?s_tid=gn_acad">Academia</a></li>
+<li class="topnav_support "><a href="https://www.mathworks.com/support.html?s_tid=gn_supp">Support</a></li>
+<li class="topnav_community "><a href="https://www.mathworks.com/matlabcentral/?s_tid=gn_mlc">Community</a></li>
+<li class="topnav_events "><a href="https://www.mathworks.com/company/events.html?s_tid=gn_ev">Events</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_store"><a href="https://www.mathworks.com/products/get-matlab.html?s_tid=gn_getml" class="btn btn_color_blue companion_btn btn-xs">Get MATLAB</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<!-- Desktop TopNav: End -->
+<!-- Conjoined Header: Start -->
+<div class="sticky_header_container includes_subnav">
+<!-- Section Header: Start -->
+<div class="section_header level_3">
+<div class="container-fluid">
+<div class="row" id="mobile_search_row">
+<div class="col-sm-6 col-md-7 has_horizontal_local_nav" id="section_header_title">
+<div class="section_header_content">
+<div class="section_header_title add_cursor_pointer">
+<p class="h1">File Exchange</p>
+</div>
+<button type="button" class="navbar-toggle collapsed subnav visible-xs visible-sm" data-toggle="collapse" data-target=".mobile_subnav_content"> <span class="icon-arrow-down icon_24"><span class="sr-only">Toggle Sub Navigation</span></span> </button>
+</div>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-5" id="mobile_search">
+<div class="search_nested_content_container">
+<!-- Search File Exchange -->
+<div id="search_scope_fx" class="collapse in">
+  <form id="fx_search_form" name="mlcsearch_form" method="get" data-language="en" action="/matlabcentral/fileexchange">
+    
+    <div class="input-group tokenized_search_field">
+      <label class="sr-only">Search File Exchange</label>
+      <input type="search" class="form-control conjoined_search fileexchange-search" autocomplete="off" name="q" placeholder="Search File Exchange" id="fxsearch"  value="" onfocus="this.value = this.value;">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">File Exchange</span></button>
+        <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+          <li data-toggle="collapse" data-target="#search_scope_support" class="site_search_scope_trigger"><a href="#">Support</a></li>
+          <li data-toggle="collapse" data-target="#search_scope_site"  class="site_search_scope_trigger"><a href="#">MathWorks</a></li>
+        </ul>
+        <script>
+          $(".support_search_scope_trigger, .site_search_scope_trigger").click(function() {
+            $("#search_scope_fx").removeClass("in");
+            $("#query").val($("#fxsearch").val());
+            $("#supportsearch").val($("#fxsearch").val());
+          });
+        </script>
+        <button type="submit" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- End Search File Exchange -->
+<!-- Support Search -->
+<div id="search_scope_support" class="collapse">
+      <form id="supportsearch_form" name="supportsearch_form" method="get" data-language="en" action="/support/search_results.html">
+        <div class="input-group tokenized_search_field">
+          <label class="sr-only">Search Support</label>
+          <input type="search" class="form-control conjoined_search" autocomplete="off" name="q" placeholder="Search Support" id="supportsearch">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">Support</span></button>
+            <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+              <li data-toggle="collapse" data-target="#search_scope_fx"  class="fileexchange_search_scope_trigger"><a href="#">File Exchange</a></li>
+              <li data-toggle="collapse" data-target="#search_scope_site"  class="support_search_scope_trigger"><a href="#">MathWorks</a></li>
+            </ul>
+            <script>
+              $(".support_search_scope_trigger, .fileexchange_search_scope_trigger").click(function() {
+                $("#search_scope_support").removeClass("in");
+                $("#fxsearch").val($("#supportsearch").val());
+                $("#query").val($("#supportsearch").val());
+              });
+            </script>
+            <button type="submit" name="submitsearch" id="submitsearch" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+<!-- End Support Search -->
+<!-- Search MathWorks.com -->
+<div id="search_scope_site" class="collapse">
+ <form name="search" id="site_search" class="site_search" action="/search/site_search.html" method="get">
+   <div class="input-group">
+     <label class="sr-only">Search MathWorks.com</label>
+     <input type="hidden" name="c[]" value="entire_site">
+     <input type="search" name="q" id="query" class="form-control conjoined_search" placeholder="Search MathWorks.com" autocomplete="off" \="">
+     <div class="input-group-btn">
+       <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button>
+       <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+         <li data-toggle="collapse" data-target="#search_scope_fx"  class="fileexchange_search_scope_trigger"><a href="#">File Exchange</a></li>
+         <li data-toggle="collapse" data-target="#search_scope_support" class="support_search_scope_trigger"><a href="#">Support</a></li>
+       </ul>
+       <script>
+         $(".support_search_scope_trigger, .fileexchange_search_scope_trigger").click(function() {
+           $("#search_scope_site").removeClass("in");
+           $("#fxsearch").val($("#query").val());
+   $("#supportsearch").val($("#query").val());
+         });
+       </script>
+       <button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+     </div>
+   </div>
+ </form>
+</div>
+<!-- End Search -->
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"><span class="sr-only">Close Mobile Search</span></button>
+</div>
+<div class="visible-xs" id="search_actuator">
+<button class="btn icon-search btn_search pull-right icon_16" data-toggle="collapse" href="#mobile_search" aria-expanded="false" aria-controls="mobile_search"><span class="sr-only">Open Mobile Search</span></button>
+</div>
+</div>
+<script>
+$(".section_header_title").click(function(){
+$(window.location).attr('href', '/matlabcentral/fileexchange/');
+});
+</script>
+<!-- Mobile Local Nav: Start -->
+<div class="row visible-xs visible-sm" id="mobile_subnav">
+<div class="col-xs-12">
+<div class="navbar-collapse collapse mobile_subnav_content">
+<ul class="nav navbar-nav subnav">
+<li class="dropdown">
+  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATLAB Central<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="topnav_community_home"><a href="/matlabcentral/?s_tid=gn_mlc">Community Home</a></li>
+    <li class="topnav_answers"><a href="/matlabcentral/answers/index/?s_tid=gn_mlc_an">MATLAB Answers</a></li>
+    <li class="topnav_fileexchange"><a href="/matlabcentral/fileexchange/?s_tid=gn_mlc_fx">File Exchange</a></li>
+    <li class="topnav_cody"><a href="/matlabcentral/cody/?s_tid=gn_mlc_cody">Cody</a></li>
+    <li class="topnav_blogs add_margin_10"><a href="https://blogs.mathworks.com/?s_tid=gn_mlc_blg">Blogs</a></li>
+    <hr class="add_margin_10 remove_margin_0">
+    <li class="topnav_distance_learning"><a href="/matlabcentral/topics/distance-learning.html?s_tid=gn_mlc_tbc_dl">Distance Learning Community</a></li>
+    <li class="topnav_simbiology"><a href="/matlabcentral/simbiology.html?s_tid=gn_mlc_tbc_sb">SimBiology Community</a></li>
+    <li class="topnav_power_electronics"><a href="/matlabcentral/topics/power-electronics-control.html?s_tid=gn_mlc_tbx_pec">Power Electronics Community</a></li>
+    <li class="topnav_thingspeak add_margin_10"><a href="/matlabcentral/topics/thingspeak.html?s_tid=gn_mlc_tbc_ts">ThingSpeak Community</a></li>
+    <hr class="add_margin_10 remove_margin_0">
+    <li class="topnav_treasure_hunt"><a href="/matlabcentral/community/onramps/mlc_treasure_hunt?s_tid=gn_mlc_hunt">Treasure Hunt</a></li>
+    <li class="topnav_highlights"><a href="/matlabcentral/highlights?s_tid=gn_mlc_hl">Highlights</a></li>
+    <li class="topnav_contests"><a href="/matlabcentral/contests.html?s_tid=gn_mlc_contests">Contests</a></li>
+    <li class="topnav_advisors"><a href="/matlabcentral/community-advisors.html?s_tid=gn_mlc_cab">Advisors</a></li>
+    <li class="topnav_badges"><a href="/matlabcentral/profile/badges/all?s_tid=gn_mlc_bdgs">Virtual badges</a></li>
+    <li class="topnav_about"><a href="/matlabcentral/about.html?s_tid=gn_mlc_about">About</a></li>
+  </ul>
+</li>
+<li><a id="leftnav_files" href="https://www.mathworks.com/matlabcentral/fileexchange/?s_tid=gn_mlc_fx_files">Files</a></li>
+<li><a id="leftnav_authors" href="https://www.mathworks.com/matlabcentral/fileexchange/authors?s_tid=gn_mlc_fx_auth">Authors</a></li>
+<li class="dropdown">
+  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My File Exchange<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="/matlabcentral/profile/authors/my_profile/activities">Activity Feed</a></li>
+    <li><a href="/matlabcentral/profile/authors/my_profile/follows">Manage Following</a></li>
+    <li><a href="/matlabcentral/profile/authors/my_profile/notification_preferences">Manage Notifications</a></li>
+    <li><a href="/matlabcentral/fileexchange/authors/my_fileexchange?s_tid=gn_mlc_fx_myfx" onclick="$(`#tabs a[href=#files_tab]`).tab('show')">My Files</a></li>
+    <li><a href="/matlabcentral/fileexchange/authors/my_fileexchange#feedback_tab" onclick="$(`#tabs a[href=#feedback_tab]`).tab('show')">My Comments and Ratings</a></li>
+  </ul>
+</li>
+<li class="maincta"><a class="submitfile" id="leftnav_submit" href="/contribute?s_tid=gn_mlc_fx_contr">Contribute</a></li>
+<li class="about"><a class="hintanchor" id="leftnav_about" href="/matlabcentral/about/fx?s_tid=gn_mlc_fx_help">About</a></li>
+
+</ul>
+</div>
+</div>
+</div>
+<!-- Mobile Local Nav: End -->
+</div>
+</div>
+<!-- Section Header: End -->
+<!-- Horo Nav: Start -->
+<div class="horizontal_nav hidden-xs hidden-sm">
+<div class="horizontal_nav_container">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-8 col-lg-9 hidden-xs hidden-sm">
+<nav class="navbar navbar-default" role="navigation" id="subnav">
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATLAB Central<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="topnav_community_home"><a href="/matlabcentral/?s_tid=gn_mlc">Community Home</a></li>
+    <li class="topnav_answers"><a href="/matlabcentral/answers/index/?s_tid=gn_mlc_an">MATLAB Answers</a></li>
+    <li class="topnav_fileexchange"><a href="/matlabcentral/fileexchange/?s_tid=gn_mlc_fx">File Exchange</a></li>
+    <li class="topnav_cody"><a href="/matlabcentral/cody/?s_tid=gn_mlc_cody">Cody</a></li>
+    <li class="topnav_blogs add_margin_10"><a href="https://blogs.mathworks.com/?s_tid=gn_mlc_blg">Blogs</a></li>
+    <hr class="add_margin_10 remove_margin_0">
+    <li class="topnav_distance_learning"><a href="/matlabcentral/topics/distance-learning.html?s_tid=gn_mlc_tbc_dl">Distance Learning Community</a></li>
+    <li class="topnav_simbiology"><a href="/matlabcentral/simbiology.html?s_tid=gn_mlc_tbc_sb">SimBiology Community</a></li>
+    <li class="topnav_power_electronics"><a href="/matlabcentral/topics/power-electronics-control.html?s_tid=gn_mlc_tbx_pec">Power Electronics Community</a></li>
+    <li class="topnav_thingspeak add_margin_10"><a href="/matlabcentral/topics/thingspeak.html?s_tid=gn_mlc_tbc_ts">ThingSpeak Community</a></li>
+    <hr class="add_margin_10 remove_margin_0">
+    <li class="topnav_treasure_hunt"><a href="/matlabcentral/community/onramps/mlc_treasure_hunt?s_tid=gn_mlc_hunt">Treasure Hunt</a></li>
+    <li class="topnav_highlights"><a href="/matlabcentral/highlights?s_tid=gn_mlc_hl">Highlights</a></li>
+    <li class="topnav_contests"><a href="/matlabcentral/contests.html?s_tid=gn_mlc_contests">Contests</a></li>
+    <li class="topnav_advisors"><a href="/matlabcentral/community-advisors.html?s_tid=gn_mlc_cab">Advisors</a></li>
+    <li class="topnav_badges"><a href="/matlabcentral/profile/badges/all?s_tid=gn_mlc_bdgs">Virtual badges</a></li>
+    <li class="topnav_about"><a href="/matlabcentral/about.html?s_tid=gn_mlc_about">About</a></li>
+  </ul>
+</li>
+<li><a id="leftnav_files" href="https://www.mathworks.com/matlabcentral/fileexchange/?s_tid=gn_mlc_fx_files">Files</a></li>
+<li><a id="leftnav_authors" href="https://www.mathworks.com/matlabcentral/fileexchange/authors?s_tid=gn_mlc_fx_auth">Authors</a></li>
+<li class="dropdown">
+  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My File Exchange<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="/matlabcentral/profile/authors/my_profile/activities">Activity Feed</a></li>
+    <li><a href="/matlabcentral/profile/authors/my_profile/follows">Manage Following</a></li>
+    <li><a href="/matlabcentral/profile/authors/my_profile/notification_preferences">Manage Notifications</a></li>
+    <li><a href="/matlabcentral/fileexchange/authors/my_fileexchange?s_tid=gn_mlc_fx_myfx" onclick="$(`#tabs a[href=#files_tab]`).tab('show')">My Files</a></li>
+    <li><a href="/matlabcentral/fileexchange/authors/my_fileexchange#feedback_tab" onclick="$(`#tabs a[href=#feedback_tab]`).tab('show')">My Comments and Ratings</a></li>
+  </ul>
+</li>
+<li class="maincta"><a class="submitfile" id="leftnav_submit" href="/contribute?s_tid=gn_mlc_fx_contr">Contribute</a></li>
+<li class="about"><a class="hintanchor" id="leftnav_about" href="/matlabcentral/about/fx?s_tid=gn_mlc_fx_help">About</a></li>
+
+</ul>
+</div>
+</nav>
+</div>
+<div class="col-md-4 col-lg-3 hidden-xs hidden-sm">
+<div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general "><a href="/campaigns/products/trials.html?eventid=56763&s_iid=mlcfx_trial_mlc_cta1" class="icon-download">Trial software</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Horo Nav: End -->
+</div>
+<!-- Conjoined Header: End -->
+    
+
+    
+
+  <div class="content_container" id="content_container" tabindex="-1">
+    <div class="container-fluid">        
+      <div class="row">
+        <div class="col-xs-12">
+            
+
+
+
+
+
+
+
+     
+    
+
+
+
+
+    
+  
+
+  <!-- JSON-LD for SEO purpose (see more at https://schema.org/) -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Get table data from RIRE Vanderbilt results page - File Exchange - MATLAB Central",
+      "accessibilitySummary": "Function takes the url of RIRE results page and returns the structure with data from the tables.",
+      "url": "https://www.mathworks.com/matlabcentral/fileexchange/32895-get-table-data-from-rire-vanderbilt-results-page",
+      "datePublished": "14 Sep 2011",
+      "contributor": {
+        "@type": "Person",
+        "name": "Borislav Oreshkin"
+      },
+      "contentRating": "0.0",
+      "commentCount": "0"
+    }
+  </script>
+
+  <div id="announcements_container"></div>
+
+  <div data-view="detail">
+    
+    
+    
+    <div id="followSuccess" class="alert alert-success hidden"> <span class="alert_icon icon-alert-success"></span>
+  <h3>You are now following this Submission</h3>
+  <ul>
+    <li>You will see updates in your <a href='/matlabcentral/profile/authors/my_profile/activities'>activity feed</a></li>
+    <li>You may receive emails, depending on your <a href='/matlabcentral/profile/authors/my_profile/notification_preferences'>notification preferences</a></li>
+  </ul>
+</div>
+
+    
+<script type="text/javascript">
+    $("#matlab_fileexchange_badge_copy").tooltip({trigger: 'manual'});
+</script>
+
+
+    <!-- start-of-the-page-container -->
+    <div class="row">
+      <div class="col-xs-12">
+        <!-- start-of-the-header -->
+        <div class="row">
+          <div class="col-xs-12 col-sm-2">
+            <div id="thumbnail" class="text-center">
+  <a border="0" href="/matlabcentral/images/default_screenshot.jpg"><img src="/responsive_image/165/120/0/0/0/cache/matlabcentral/images/default_screenshot.jpg" alt="image thumbnail" itemprop="image" /></a>
+</div>
+
+          </div>
+          <div class="col-xs-12 col-sm-10">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-md-9">
+                <h2 id="title" class="add_font_color_emphasize add_margin_5">
+                    <span id="titleText">Get table data from RIRE Vanderbilt results page</span>
+                </h2>
+                <div class="add_margin_5">
+                    <span id="user_version" class="small add_font_color_mediumgray">version 1.0.0.0 (5.52 KB) by </span>
+                  <span><a class="author_inline analyticsMlcProfileModal results_author" data-locale-id="en-US" href="/matlabcentral/profile/authors/2625753">Borislav Oreshkin</a>
+
+</span>
+                </div>
+                <div id="summary" class="add_text_wrapping">
+                  <span id="summaryText">Function takes the url of RIRE results page and returns the structure with data from the tables.</span>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-3 section_downsize">
+                <div class="pull-right">
+                  <div class="rating add_margin_5 text-right" title="0.00 out of 5 Stars">
+                    <span class="numberrating">
+                      <div class="rate_scale">
+                        <div class="rated" style="width: 0.0%;">
+                          <span id="rating_value">0.0</span>
+                        </div>
+                      </div>
+                      <a href="#feedbacks"><span id="rating_count">0 Ratings</span> </a>
+                    </span>
+                  </div>
+                    <p class="add_margin_0 text-right">
+                      <span id="downloads">4 Downloads</span>
+                      <span class="icon_16 icon-info-circle" data-container="body" data-toggle="popover" role="button" tabindex="0" data-trigger="focus" data-placement="left" title="" data-content="Last 30 days: 4<br> All time: 636" data-original-title="Downloads" aria-describedby="popover506129"></span>
+                    </p>
+                  <p class="add_margin_0 text-right">
+                    <span id="date_updated">Updated
+                      <span content="2011-09-14">14 Sep 2011</span>
+                    </span>
+                  </p>
+                    <p class="text-right"><a data-toggle="modal" href="#license_modal">View License</a></p>
+
+<div class="modal fade" id="license_modal" tabindex="-1" role="dialog" aria-labelledby="license_modal_title" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title" id="license_modal_title">License</h3>
+      </div>
+      <div class="modal-body">
+        <iframe src="/matlabcentral/mlc-downloads/downloads/e57e5ba7-4a80-11e4-9553-005056977bd0/1da76f4e-6018-9995-aa60-cc1d19993ae9/licenses/license.txt" style="border: none" frameborder="0"></iframe>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <ul class="list-inline pull-right add_clear_both">
+  <li class="add_margin_0">
+      <a href="https://www.mathworks.com/login?uri=https%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Ffileexchange%2F32895-get-table-data-from-rire-vanderbilt-results-page&amp;form_type=community" class="btn btn-sm companion_btn btn_color_blue"><span class="icon-add"></span>Follow</a>
+  </li>
+  <!-- Start Download action -->
+  <li>
+    <div data-visible-on="add">
+            <div><a title="Download" data-logintodownload="true" class="btn btn-sm btn_color_blue btn-block link--download" href="https://www.mathworks.com/login?uri=https%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Ffileexchange%2F32895-get-table-data-from-rire-vanderbilt-results-page&amp;form_type=community">Download</a></div>
+</div>
+
+  </li>
+  <!-- End Download action -->
+</ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end-of-the-header -->
+
+        <!-- start-of-the-tabs -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="all-tabs-container">
+              <div>
+  <ul role="tablist" class="nav nav-tabs responsive" id="add_on_files">
+    <li class="active">
+      <a role="tab" data-toggle="tab" href="#overview_tab">Overview</a>
+    </li>
+      <li class="">
+        <a role="tab" data-toggle="tab" href="#functions_tab">Functions</a>
+      </li>
+  </ul>
+</div>
+<div class="tab-content responsive">
+    <div class="tab-pane active" id="overview_tab" data-context="web">
+    <div class="row">
+      <div class='col-xs-12 col-md-9' >
+
+        <div id="description" data-add-on-description="true" class="add_margin_30 add_text_wrapping">
+          <div id="descriptionBody"><p>Function takes the url of RIRE results page, for example, <a href="./view_result.html?methodid=10308" target="_blank" rel="nofollow noopener noreferrer">./view_result.html?methodid=10308</a> and returns the structure containing all the tables with data identified on this page. Each element of the structure corresponds to one table. The patient and modality information is stored in the elements of the structure along with the data. This code is based on the HTML table extraction code by Sven Körner found at <a href="http://mathworks.com/matlabcentral/fileexchange/29642-get-html-table-data-into-matlab-via-urlread-and-without-builtin-browser" target="_blank" rel="nofollow noopener noreferrer">http://mathworks.com/matlabcentral/fileexchange/29642-get-html-table-data-into-matlab-via-urlread-and-without-builtin-browser</a></p></div>
+        </div>
+
+          <div id="citation" class="add_margin_30 add_text_wrapping">
+    <h3 class="add_bottom_rule add_margin_5">
+      Cite As
+    </h3>
+        <p id="defaultCitation" class="add_margin_20">
+    Borislav Oreshkin (2021). <span id="defaultCitationTitle">Get table data from RIRE Vanderbilt results page</span> (https://www.mathworks.com/matlabcentral/fileexchange/32895-get-table-data-from-rire-vanderbilt-results-page), MATLAB Central File Exchange.
+    Retrieved <time datetime="2021-04-20 20:06:40 UTC">April 20, 2021</time>.
+</p>
+
+  </div>
+
+        <div id="feedbacks">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="add_bottom_rule">Comments and Ratings (<span id="feedbacks_count">0</span>)</h3>
+
+      <div id="feedbacks_edit" data-feedbacks-edit-path="/matlabcentral/fileexchange/ui/feedbacks/edit">
+      </div>
+
+      <div id="feedbacks_list" class="row add_margin_50 comment_container" data-add-on-comment-rating="true">
+        
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <div class="col-xs-12 col-md-3 section_downsize">
+          
+
+          <div id="matlab_release" class="add_margin_20">
+            <h5 class="add_bottom_rule add_margin_5">MATLAB Release Compatibility</h5>
+            <div>
+              Created with
+              R2011a
+            </div>
+            <div>
+              Compatible with any release
+            </div>
+          </div>
+
+        <div id="os_platforms" class="add_margin_20">
+          <h5 class="add_bottom_rule add_margin_5">Platform Compatibility</h5>
+          <span class='icon-checkbox-checked add_padding_5'></span><span>Windows</span> <span class='icon-checkbox-checked add_padding_5'></span><span>macOS</span> <span class='icon-checkbox-checked add_padding_5'></span><span>Linux</span>
+        </div>
+
+          <div id="categories" class="add_margin_20">
+    <h5 class="add_bottom_rule add_margin_5">Categories</h5>
+    <ul class="list-unstyled show_more_toggle" data-height="200" data-collapse-text="Show less" data-expand-text="Show more">
+        <li class="add_margin_15">
+            <a data-enable-spinner="true" href="/matlabcentral/fileexchange/?category[]=matlab/index&amp;s_tid=FX_AO_detail_cat">MATLAB</a>
+            <span class="add_font_color_darkgray">></span>
+            <a data-enable-spinner="true" href="/matlabcentral/fileexchange/?category[]=matlab/language-fundamentals&amp;s_tid=FX_AO_detail_cat">Language Fundamentals</a>
+            <span class="add_font_color_darkgray">></span>
+            <a data-enable-spinner="true" href="/matlabcentral/fileexchange/?category[]=matlab/data-types&amp;s_tid=FX_AO_detail_cat">Data Types</a>
+            <span class="add_font_color_darkgray">></span>
+            <a data-enable-spinner="true" href="/matlabcentral/fileexchange/?category[]=matlab/tables&amp;s_tid=FX_AO_detail_cat">Tables</a>
+            <span class="add_font_color_darkgray">></span>
+        </li>
+    </ul>
+  </div>
+
+
+        <div class="add_margin_20">
+  <div data-tags-path="">
+    <h5 class="add_bottom_rule add_margin_5">Tags
+      <span id="add_tags_span" class="add-tags-span pull_right hide">
+        <a class="add-tags-link" href="#">Add Tags</a>
+      </span>
+    </h5>
+    <div id="tags" class="tag-list">
+        <a rel="nofollow" class="tag_component" href="/matlabcentral/fileexchange/?term=tag:%22get+data+from+web%22">get data from web</a> <a rel="nofollow" class="tag_component" href="/matlabcentral/fileexchange/?term=tag:%22html+table+into+matlab+array%22">html table into m...</a> <a rel="nofollow" class="tag_component" href="/matlabcentral/fileexchange/?term=tag:%22read+html+tables%22">read html tables</a> <a rel="nofollow" class="tag_component" href="/matlabcentral/fileexchange/?term=tag:%22rire%22">rire</a> <a rel="nofollow" class="tag_component" href="/matlabcentral/fileexchange/?term=tag:%22vanderbilt%22">vanderbilt</a>
+    </div>
+
+    <div id="add_tags_form">
+      <form id="add_new_tags_form" action="/matlabcentral/fileexchange/ui/tags" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="add_on_uuid" value="e57e5ba7-4a80-11e4-9553-005056977bd0" />
+  <input type="text" name="tags" id="add_tags" value="" class="form-control add_margin_5" />
+  <button type="button" class="btn btn-xs companion_btn btn_color_blue cancel_button">Cancel</button>
+  <input type="submit" value="Save" class="btn btn-xs btn_secondary save_button" data-disable-with="Save" />
+</form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $("#add_tags").multicomplete({
+    data_source: { url: "/matlabcentral/fileexchange/ui/tags/auto_suggest" }
+  });
+
+  $(".add-tags-link").click(function() {
+    $("#add_tags_form").show();
+    $("#add_tags").focus();
+    return false;
+  });
+
+  $("#add_tags_form .cancel_button").click(function() {
+    $("#add_tags").val('').blur();
+    $("#add_tags_form").hide();
+  });
+
+  $("#add_new_tags_form").on('ajax:complete', function(){
+    $('.multicomplete > .multicomplete-selected-item').remove()
+    $("#add_tags").val('').blur();
+    $("#add_tags_form").hide();
+  });
+</script>
+
+
+        <div id="related_content" data-related-content-path="/matlabcentral/fileexchange/ui/related_content/e57e5ba7-4a80-11e4-9553-005056977bd0"></div>
+
+        
+
+          
+
+          <div id="treasure_hunt_spotlight">
+  <div class="panel panel-default add_cursor_pointer" onclick="location.href='/matlabcentral/community/onramps/mlc_treasure_hunt?s_tid=hunt_spotlight';">
+    <div class="panel-heading add_background_cover add_font_color_white" style="min-height: 80px; background-image: url(/matlabcentral/static/hunt_banner.png);">
+    </div>
+    <div class="panel-body">
+      <h3>Community Treasure Hunt</h3>
+      <p>Find the treasures in MATLAB Central and discover how the community can help you!</p>
+      <a class="icon-chevron" href="/matlabcentral/community/onramps/mlc_treasure_hunt?s_tid=hunt_spotlight">Start Hunting!</a>
+    </div>
+  </div> 
+</div>
+
+          <div id="relatedContentSpotlight" class="relatedContentSpotlight" addonFileExchangeId="32895" addonTitle="Get table data from RIRE Vanderbilt results page" addonSummary="Function takes the url of RIRE results page and returns the structure with data from the tables." addonTags="get data from web html table into matlab array read html tables rire vanderbilt" addonPath="32895-get-table-data-from-rire-vanderbilt-results-page">
+</div>
+
+<div id="staticSpotlight" class="hidden">
+  <div class="panel panel-default">
+    <div class="panel-heading add_padding_40 add_background_position_left add_background_cover" style="background-image: url(/images/responsive/supporting/apps/downloads/panel-live-editor-spotlight.png);">
+    </div>
+    <div class="panel-body">
+      <h3 class="add_font_color_orange">Discover Live Editor</h3>
+      <p>Create scripts with code, output, and formatted text in a single executable document.</p>
+      <hr class="add_hr_spacing_10">
+      <p><a class="icon-chevron" href="https://www.mathworks.com/products/matlab/live-editor.html?s_tid=fx_mlle" target="liveeditor">Learn About Live Editor</a></p>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+  <script>
+  $(function() {
+    var incrementViewCount = new UI.IncrementViewCount(
+      "/matlabcentral/fileexchange/ui/view_count",
+      "e57e5ba7-4a80-11e4-9553-005056977bd0"
+    );
+
+    incrementViewCount.execute();
+  });
+</script>
+
+
+    <div class="tab-pane " id="functions_tab">
+      <div class="row">
+    <div class="col-xs-3">
+    	<div class="package__file-list single_tier functions" data-pane="scroll">
+            <h4></h4>
+          <ul class="nav nav-list nav--file-list truncate_text list-inline">
+              <li id="function_d6f7097c-3f17-3a5e-ac75-0889a98c487c" class="selected" title="getDataFromWeb(url_string)">
+                <a href="https://viewer.mathworks.com/?viewer=plain_code&amp;url=https%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Fmlc-downloads%2Fdownloads%2Fsubmissions%2F32895%2Fversions%2F1%2Fcontents%2FgetDataFromWeb.m&amp;embed=web" title="getDataFromWeb(url_string)" data-render-in-viewer-app="true"
+                data-iframe-src="https://viewer.mathworks.com/?viewer=plain_code&amp;url=https%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Fmlc-downloads%2Fdownloads%2Fsubmissions%2F32895%2Fversions%2F1%2Fcontents%2FgetDataFromWeb.m&amp;embed=web">getDataFromWeb(url_string)</a>
+              </li>
+              <li id="function_ce4e3127-41b1-f00c-78ae-4e70bdfe0c17" class="" title="getDataFromWeb_script.m">
+                <a href="https://viewer.mathworks.com/?viewer=plain_code&amp;url=https%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Fmlc-downloads%2Fdownloads%2Fsubmissions%2F32895%2Fversions%2F1%2Fcontents%2FgetDataFromWeb_script.m&amp;embed=web" title="getDataFromWeb_script.m" data-render-in-viewer-app="true"
+                data-iframe-src="https://viewer.mathworks.com/?viewer=plain_code&amp;url=https%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Fmlc-downloads%2Fdownloads%2Fsubmissions%2F32895%2Fversions%2F1%2Fcontents%2FgetDataFromWeb_script.m&amp;embed=web">getDataFromWeb_script.m</a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-xs-9">
+    	<div class="package__file-content">
+        <div class="panel panel-default package__file-content_panel" id="functions_iframe_holder">
+          <iframe id='functions_iframe' src="" data-default-src="https://viewer.mathworks.com/?viewer=plain_code&amp;url=https%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Fmlc-downloads%2Fdownloads%2Fsubmissions%2F32895%2Fversions%2F1%2Fcontents%2FgetDataFromWeb.m&amp;embed=web"></iframe>
+        </div>
+      </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+        <!-- end-of-the-tabs -->
+      </div>
+    </div>
+    <!-- end-of-the-page-container -->
+    
+    <script src="/matlabcentral/fileexchange/assets/file_infos/show-235ce0f42457572af506ee7b3bf1d2bf08dc61ff44e115ec78ca2207e6ea4c08.js"></script>
+    <script src="/matlabcentral/fileexchange/assets/ui/application-0c0571f7bf4f164a960923148acf722bc63ca6154a615c66c0d678fdb95f179e.js"></script>
+  </div>
+
+<script src="/includes_content/responsive/scripts/MwCondensedRelatedContent.js"></script>
+<script src="/matlabcentral/jscript/announcements_v1.js" data-app-name="File Exchange"></script>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="popover"]').popover({ html: true });
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    // Has to run on window load and not DOMContentReady because we have to wait for the Quaularoo object to exist
+    window.addEventListener("load", function () {
+        // Qualaroo survey code added in web2020Jul -- all values must be strings
+        function setQualarooVars(userIsFollowing) {
+            if (typeof _kiq !== "undefined" && _kiq.push) {
+                let qualarooVars = {
+                    "userLoggedIn": "",
+                    "userIsFollowing": userIsFollowing.toString(),
+                    "userIsAuthor":  "false"
+                }
+
+                _kiq.push(['set', qualarooVars]);
+            }
+        }
+
+        const followUiContainer = document.getElementById("follow");
+
+        // Follow UI container only exists if the current user is logged in
+        if (followUiContainer) {
+            const followService = new FollowService(followUiContainer);
+
+            followService.addEventListener("load", function(followingLoadEvent) {
+                setQualarooVars(followingLoadEvent.data.isFollowing);
+            });
+
+            followService.load();
+        } else {
+            setQualarooVars(false);
+        }
+    });
+</script>
+
+    <script src="/includes_content/responsive/scripts/offcanvas.js?20150311"></script>
+
+  
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+<div id="location_content" style="display:none;"></div>
+
+
+<div class="modal fade" id="country-unselected" tabindex="-1" role="dialog" aria-labelledby="country-unselected-title" translate="no">
+<div id="country-select-container">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <img alt="MathWorks" src="/images/responsive/global/pic-header-mathworks-logo2.svg" style="width:167px; height:auto;">
+      </div>
+      <div class="modal-body">
+        <div class="row add_margin_40">
+          <div class="col-xs-12">
+            <h1 class="icon-globe icon_color_secondary" id="country-unselected-title">Select a Web Site</h1>
+            <p>Choose a web site to get translated content where available and see local events and offers. Based on your location, we recommend that you select: <strong class="recommended-country"></strong>.</p>
+            <a href="#" id="recommended_domain_button"
+						   class="btn btn_color_blue containsResourceName resourceClass-button">Select <span
+							class="recommended-country"></span> web site</a>
+          </div>
+        </div>
+        <p>You can also select a web site from the following list:</p>
+				<div class="alert alert-warning" id="china_performance_alert" style="display:none;"> <span class="alert_icon icon-alert-warning"></span>
+					<h2>How to Get Best Site Performance</h2>
+					<p>Select the China site (in Chinese or English) for best site performance. Other MathWorks country sites are not optimized for visits from your location.</p>
+				</div>
+        <div class="row add_margin_30">
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Americas</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://la.mathworks.com" class="domain_selector_link" data-country-code="LA" data-subdomain="la" data-lang="es" data-default-lang="true" data-selected-text="América Latina" data-recommended-text="América Latina" data-do-not-rewrite="true">Am&eacute;rica Latina</a> (Español)</li>
+              <li><a href="https://www.mathworks.com" class="domain_selector_link" data-country-code="CA" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Canada</a> (English)</li>
+              <li><a href="https://www.mathworks.com" class="domain_selector_link" data-country-code="US" data-subdomain="www" data-lang="en" data-default-lang="true" data-selected-text="United States" data-recommended-text="United States" data-do-not-rewrite="true">United States</a> (English)</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-6">
+            <h3 class="add_bottom_rule">Europe</h3>
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled add_margin_0_sm">
+                  <li><a href="https://nl.mathworks.com" class="domain_selector_link" data-country-code="BE" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Belgium</a> (English)</li>
+                  <li><a href="https://se.mathworks.com" class="domain_selector_link" data-country-code="DK" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Denmark</a> (English)</li>
+                  <li><a href="https://de.mathworks.com" class="domain_selector_link" data-country-code="DE" data-subdomain="de" data-lang="de" data-default-lang="true" data-selected-text="Deutschland" data-recommended-text="Deutschland" data-do-not-rewrite="true">Deutschland</a> (Deutsch)</li>
+                  <li><a href="https://es.mathworks.com" class="domain_selector_link" data-country-code="ES" data-subdomain="es" data-lang="es" data-default-lang="true" data-selected-text="España" data-recommended-text="España" data-do-not-rewrite="true">España</a> (Español)</li>
+                  <li><a href="https://se.mathworks.com"  class="domain_selector_link" data-country-code="FI" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Finland</a> (English)</li>
+                  <li><a href="https://fr.mathworks.com" class="domain_selector_link" data-country-code="FR" data-subdomain="fr" data-lang="fr" data-default-lang="true" data-selected-text="France" data-recommended-text="France" data-do-not-rewrite="true">France</a> (Français)</li>
+                  <li><a href="https://uk.mathworks.com" class="domain_selector_link" data-country-code="IE" data-subdomain="uk" data-lang="en" data-do-not-rewrite="true">Ireland</a> (English)</li>
+                  <li><a href="https://it.mathworks.com" class="domain_selector_link" data-country-code="IT" data-subdomain="it" data-lang="it" data-default-lang="true" data-selected-text="Italia" data-recommended-text="Italia" data-do-not-rewrite="true">Italia</a> (Italiano)</li>
+                  <li><a href="https://nl.mathworks.com" class="domain_selector_link" data-country-code="LU" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Luxembourg</a> (English)</li>
+                </ul>
+              </div>
+              <div class="col-xs-6 col-sm-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://nl.mathworks.com" class="domain_selector_link" data-country-code="NL" data-subdomain="nl" data-lang="en" data-default-lang="true" data-selected-text="Benelux" data-recommended-text="Netherlands" data-do-not-rewrite="true">Netherlands</a> (English)</li>
+                  <li><a href="https://se.mathworks.com" class="domain_selector_link" data-country-code="NO" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Norway</a> (English)</li>
+                  <li><a href="https://de.mathworks.com" class="domain_selector_link" data-country-code="AT" data-subdomain="de" data-lang="de" data-do-not-rewrite="true">Österreich</a> (Deutsch)</li>
+                  <li><a href="https://www.mathworks.com" class="domain_selector_link" data-country-code="PT" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Portugal</a> (English)</li>
+                  <li><a href="https://se.mathworks.com" class="domain_selector_link" data-country-code="Sweden" data-subdomain="se" data-lang="en" data-default-lang="true" data-selected-text="Nordic" data-recommended-text="Sweden" data-do-not-rewrite="true">Sweden</a> (English)</li>
+                  <li>Switzerland
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="https://ch.mathworks.com" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="de" data-selected-text="Schweiz" data-recommended-text="Schweiz" data-do-not-rewrite="true">Deutsch</a></li>
+                      <li><a href="https://ch.mathworks.com" id="swiss_english" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="en" data-default-lang="true" data-selected-text="Switzerland" data-recommended-text="Switzerland" data-do-not-rewrite="true">English</a></li>
+                      <li><a href="https://ch.mathworks.com" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="fr" data-selected-text="Suisse" data-recommended-text="Suisse" data-do-not-rewrite="true">Français</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="https://uk.mathworks.com" class="domain_selector_link" data-country-code="GB" data-subdomain="uk" data-lang="en" data-default-lang="true" data-selected-text="United Kingdom" data-recommended-text="United Kingdom" data-do-not-rewrite="true">United Kingdom</a> (English)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <h3 class="add_bottom_rule">Asia Pacific</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://au.mathworks.com" class="domain_selector_link" data-country-code="AU" data-subdomain="au" data-lang="en" data-default-lang="true" data-selected-text="Australia" data-recommended-text="Australia" data-do-not-rewrite="true">Australia</a> (English)</li>
+              <li><a href="https://in.mathworks.com" class="domain_selector_link" data-country-code="IN" data-subdomain="in" data-lang="en" data-default-lang="true" data-selected-text="India" data-recommended-text="India" data-do-not-rewrite="true">India</a> (English)</li>
+              <li><a href="https://au.mathworks.com" class="domain_selector_link" data-country-code="NZ" data-subdomain="au" data-lang="en" data-do-not-rewrite="true">New Zealand</a> (English)</li>
+              <li>中国
+                    <ul class="list-unstyled add_indent_20">
+                      <li><a href="https://ww2.mathworks.cn" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="zh" data-default-lang="true" data-selected-text="中国" data-recommended-text="中国" data-do-not-rewrite="true">简体中文</a></li>
+                      <li><a href="https://ww2.mathworks.cn" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="en" data-default-lang="true" data-selected-text="China" data-recommended-text="China" data-do-not-rewrite="true">English</a></li>
+                    </ul>
+               </li>
+              <li><a href="https://jp.mathworks.com" class="domain_selector_link" data-country-code="JP" data-subdomain="jp" data-lang="ja" data-default-lang="true" data-selected-text="日本" data-recommended-text="日本" data-do-not-rewrite="true">日本</a> (日本語)</li>
+              <li><a href="https://kr.mathworks.com" class="domain_selector_link" data-country-code="KR" data-subdomain="kr" data-lang="ko" data-default-lang="true" data-selected-text="한국" data-recommended-text="한국" data-do-not-rewrite="true">한국</a> (한국어)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center"><a href="#" class="worldwide_link">Contact your local office</a></p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+  
+
+        </div>
+      </div>
+    </div>
+  </div>
+      
+  
+  <!-- MOBILE CTA - Begin -->
+  <div class="cta_container_mobile visible-sm visible-xs">
+    <div class="container-fluid">      
+      <div class="row add_margin_20">
+        <div class="col-xs-12">
+          <div class="cta_box">
+<ul class="list-inline">
+<li class="cta_item cta_item_general "><a href="/campaigns/products/trials.html?eventid=56763&s_iid=mlcfx_trial_mlc_cta1" class="icon-download">Trial software</a></li>
+</ul>
+</div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MOBILE CTA - End -->
+
+  <footer id="footer" class="bs-footer"> 
+      <!-- FAT FOOTER - Begin --> 
+        <div class="fat_footer_container">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="grid_192">
+<div class="fat_footer">
+<div class="execmatlabweb"> <!--Requried for Doc Test -->
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-9 col-lg-push-3 add_margin_20">
+<div class="row">
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Explore Products</p>
+<ul class="list-unstyled">
+<li><a href="/products/matlab.html?s_tid=hp_ff_p_matlab">MATLAB</a></li>
+<li><a href="/products/simulink.html?s_tid=hp_ff_p_simulink">Simulink</a></li>
+<li><a href="/products/matlab/student.html?s_tid=hp_ff_p_student">Student Software</a></li>
+<li><a href="/hardware-support/home.html?s_tid=hp_ff_p_hwsupport">Hardware Support</a></li>
+<li><a href="/matlabcentral/fileexchange/?s_tid=hp_ff_p_fx">File Exchange</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Try or Buy</p>
+<ul class="list-unstyled">
+<li><a href="/downloads/web_downloads/?s_iid=hp_ff_t_downloads">Downloads</a></li>
+<li><a href="/campaigns/products/trials.html?s_iid=hp_ff_p_trial">Trial Software</a></li>
+<li><a href="/company/aboutus/contact_us/contact_sales.html?s_iid=hp_ff_t_sales">Contact Sales</a></li>
+<li><a href="/pricing-licensing.html?s_iid=hp_ff_t_pricing">Pricing and Licensing</a></li>
+<li><a href="/store/?s_tid=hp_ff_t_buy">How to Buy</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Learn to Use</p>
+<ul class="list-unstyled">
+<li><a href="/help/?s_tid=hp_ff_l_doc">Documentation</a></li>
+<li><a href="/support/learn-with-matlab-tutorials.html?s_tid=hp_ff_l_tutorials">Tutorials</a></li>
+<li><a href="/help/examples.html?s_tid=hp_ff_l_examples">Examples</a></li>
+<li><a href="/videos.html?s_tid=hp_ff_l_videos">Videos and Webinars</a></li>
+<li><a href="/services/training.html?s_tid=hp_ff_l_training">Training</a></li>
+</ul>
+</div>
+<div class="clearfix" id="offcanvas_clearfix" style="display:none"></div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">Get Support</p>
+<ul class="list-unstyled">
+<li><a href="/help/install/?s_tid=hp_ff_s_install">Installation Help</a></li>
+<li><a href="/matlabcentral/answers/index?s_tid=hp_ff_s_answers">Answers</a></li>
+<li><a href="/services/consulting.html?s_tid=hp_ff_s_consulting">Consulting</a></li>
+<li><a href="/licensecenter/?s_tid=hp_ff_s_license">License Center</a></li>
+<li><a href="/support/contact_us.html?s_tid=hp_ff_s_support">Contact Support</a></li>
+</ul>
+</div>
+<div class="col-xs-12 col-sm-2">
+<p class="ff_section_title">About <span translate="no">MathWorks</span></p>
+<ul class="list-unstyled">
+<li><a href="/company/jobs/opportunities.html?s_tid=hp_ff_a_careers">Careers</a></li>
+<li><a href="/company/newsroom.html?s_tid=hp_ff_a_newsroom">Newsroom</a></li>
+<li><a href="/company/aboutus/soc_mission.html?s_tid=hp_ff_a_socialmission">Social Mission</a></li>
+<li><a href="/company/aboutus/contact_us/contact_sales.html?s_tid=hp_ff_a_sales">Contact Sales</a></li>
+<li><a href="/company.html?s_tid=hp_ff_a_company">About <span translate="no">MathWorks</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-md-12 col-lg-3 col-lg-pull-9">
+<p class="h4 add_font_futura_medium add_margin_0"><span translate="no">MathWorks</span></p>
+<p><em>Accelerating the pace of engineering and science</em></p>
+<p><span translate="no">MathWorks</span> is the leading developer of mathematical computing software for engineers and scientists.</p>
+<p><a href="/discovery.html?s_tid=all_disc_mw_ff">Discover...</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- FAT FOOTER - End -->
+    <!-- BASIC FOOTER CONTENT - Begin --> 
+    <div class="container-fluid"> 
+      <div class="footer" translate="no">
+<div class="row">
+<div class="col-xs-12 col-md-9">
+<ul class="countrynav" id="countrynav">
+<li class="footernav_country">
+<a href="#" data-toggle="modal" data-target="#country-unselected">
+<span class="icon-globe icon_color_quinary icon_16"></span>United States
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<ul class="footernav">
+<li class="footernav_patents"><a href="https://www.mathworks.com/company/aboutus/policies_statements/patents.html?s_tid=gf_pat">Patents</a></li>
+<li class="footernav_trademarks"><a href="https://www.mathworks.com/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">Trademarks</a></li>
+<li class="footernav_privacy"><a href="https://www.mathworks.com/company/aboutus/policies_statements.html?s_tid=gf_priv">Privacy Policy</a></li>
+<li class="footernav_piracy"><a href="https://www.mathworks.com/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">Preventing Piracy</a></li>
+<li class="footernav_status"><a href="https://status.mathworks.com/?s_tid=gf_application">Application Status</a></li>
+<li class="footernav_terms"><a href="https://www.mathworks.com/matlabcentral/termsofuse.html ">Terms of Use</a></li>
+</ul>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<p class="copyright" translate="no">&copy; 1994-2021 The MathWorks, Inc.</p>
+</div>
+<div class="clearfix visible-sm add_margin_10"></div>
+<div class="col-xs-12 col-md-3">
+<div class="social_media">
+<ul class="social_media_icons">
+<li>
+<a href="https://www.facebook.com/MATLAB" target="_blank" rel="nofollow noopener noreferrer" class="svg_link">
+<img src="/images/responsive/global/ico-facebook.svg" alt="Facebook" class="ico_facebook">
+</a>
+</li>
+<li>
+<a href="https://www.twitter.com/MATLAB" target="_blank" rel="nofollow noopener noreferrer" class="svg_link">
+<img src="/images/responsive/global/ico-twitter.svg" alt="Twitter" class="ico_twitter">
+</a>
+</li>
+<li>
+<a href="https://www.instagram.com/matlab/" class="svg_link" target="_blank" rel="nofollow noopener noreferrer">
+<img class="ico_instagram" alt="Instagram" src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/ico-instagram.svg">
+</a>
+</li>
+<li>
+<a href="https://www.youtube.com/user/MATLAB" class="svg_link" target="_blank" rel="nofollow noopener noreferrer">
+<img class="ico_youtube" alt="YouTube" src="/images/responsive/global/ico-youtube.svg">
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/company/the-mathworks_2" target="_blank" rel="nofollow noopener noreferrer" class="svg_link">
+<img src="/images/responsive/global/ico-linkedin.svg" alt="LinkedIn" class="ico_linkedin">
+</a>
+</li>
+<li>
+<a href="https://www.mathworks.com/company/rss.html" class="svg_link">
+<img src="/images/responsive/global/ico-rss.svg" alt="RSS" class="ico_rss">
+</a>
+</li>
+</ul>
+<div class="clearfix"></div>
+<p><em>Join the conversation</em></p>
+</div>
+</div>
+</div>
+</div>
+<div id="cookie-banner-text" style="display:none;"></div>
+<!-- BEGIN Adobe DTM -->
+<script type="text/javascript">
+try {
+_satellite.pageBottom();
+} catch (e) {
+//something went wrong
+}
+</script>
+<!-- END Adobe DTM -->
+    </div>
+    <!-- BASIC FAT FOOTER CONTENT - End -->
+  </footer>
+
+    <script src="/includes_content/responsive/scripts/lightbox-min.js"></script> 
+    <script>
+      $(document).ready(function ($) {
+
+        // delegate calls to data-toggle="lightbox"
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+          event.preventDefault();
+          return $(this).ekkoLightbox({
+            onShown: function() {
+				if ($('.ekko-lightbox-container iframe').length) {
+				  $(".ekko-lightbox-container iframe").attr("scrolling","no");
+				  $(".ekko-lightbox-container iframe").load(lightboxIframeHeight);
+				}
+            },
+            onNavigate: function(direction, itemIndex) {
+              if (window.console) {
+                return console.log('Navigating '+direction+'. Current item: '+itemIndex);
+              }
+            }
+          });
+        });
+		
+		// resize
+		$(window).resize(lightboxIframeHeight)	
+
+		// lightbox height function
+		function lightboxIframeHeight() {
+			if ($('.ekko-lightbox-container iframe').length) {
+				whichIframeHeight = $('.ekko-lightbox-container iframe').contents().find('body').height() + 20;
+				$(".ekko-lightbox-container iframe").css("height",whichIframeHeight);
+			}
+		}
+
+        //Programatically call
+        $('#open-image').click(function (e) {
+          e.preventDefault();
+          $(this).ekkoLightbox();
+        });
+        $('#open-youtube').click(function (e) {
+          e.preventDefault();
+          $(this).ekkoLightbox();
+        });
+      });
+    </script> 
+
+</body>
+</html>

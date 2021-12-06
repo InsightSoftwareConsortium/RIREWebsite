@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>The Retrospective Image Registration Evaluation Project</title>
+<meta name="keywords" content="Retrospective,Image,Registration,Evalutation,Project,NLM,Kitware" />
+<meta name="description" content="The Retrospective Image Registration Evaluation Project" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div id="outer">
+	<div id="header">
+	 <h2>&nbsp;</h2>
+		<h1><a href="index.html">The Retrospective Image Registration Evaluation Project</a></h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="first"><a href="index.html" accesskey="1" title="">Home</a></li>
+			<li><a href="information.html" accesskey="2" title="">Information</a></li>
+			<li><a href="download.html" accesskey="3" title="">Download</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="primaryContentContainer">
+			<div id="primaryContent">
+				<h2>Information regarding  the R.I.R.E project</h2>
+				<h3>Description</h3>
+				<ul>
+				<li>Full Description of the original project: <a href="download/description.pdf"><img src="images/pdf.gif" width="16" height="16" border="0" /></a><a href="download/description.ps"><img src="images/paper.jpg" width="16" height="16" border="0" /></a></li>
+				<li><a href="data_format.html">Format of the data and structure</a> of the database</li>
+				<li>Details on MP-RAGE</li>
+				<li>Converting to our coordinate system</li>
+				<li><a href="transform_format.html">Format of the transformations</a> file</li>
+                <li><a href="download_tools.html">Data manipulation tools</a></li>
+				<li>Sample acknowledgements</li>
+				</ul>
+				<h3>Details on MP-RAGE</h3>
+				MP-RAGE (Magnetization Prepared RApid Gradient Echo) is a rapid gradient-echo technique in which a preparation pulse (or pulses) is applied before the acquisition sequence to enhance contrast.  [John P. Mugler III and James R. Brookeman, “Three-Dimensional Magnetization-Prepared Rapid Gradient-Echo Imaging (3D MP RAGE)�?, Magnetic Resonance in Medicine 15, pp.  152--157 (1990)]
+    <br />
+    <br />
+    In our sequence a single inversion pulse is followed by a 400 ms delay time. As a result our MP-RAGE images are T1-weighted.  The excitation pulse has a 10 degree flip angle, TE is 4 ms, and TR is 10 ms.  The resolution is 128 x 256 x 256.<br /> <br />
+    The corresponding dimensions are approximately 160 mm by 250 mm by 250 mm.  (The precise voxel dimensions for each volume are, as always, included in the corresponding header.ascii file). There is one acquisition. Total acquisition time is 8 minutes and 55 seconds.<br/><br/>
+				<h3>Converting to our coordinate system</h3>
+    <p>The recipe is as follows for CT-to-MR transformations:<br />
+        <br />
+  Define:         <br />
+          - T_ct = translation that brings our CT coordinate system into your CT coordinate system
+          <br />
+          - T_mr = translation that brings our MR coordinate system into your MR coordinate system
+          <br />
+          -
+          R_ctmr = transformation that registers CT to MR in your coordinate systems
+
+        <br />
+          <br />
+        To transform <x, y, z> for a point measured in our CT coordinate system into its registered position, <new_x, new_y, new_z> measured in our MR coordinate system:<br />
+        <br />
+        1)      Apply T_ct to <x, y, z>. <br />
+        2)      Apply R_ctmr to the result of step 1. <br />
+        3)      Apply the inverse of T_mr (n.b., NOT the inverse of T_ct) to the result of step 2. </p>
+    <h3>Sample acknowledgments</h3>
+		The images and the standard transformation(s) were provided as part of the project,<br />
+		<br />
+        “Retrospective Image Registration Evaluation�?,
+        <br />
+        National Institutes of Health,
+        <br />
+        Project Number 8R01EB002124-03,
+        <br />
+        Principal Investigator, J. Michael Fitzpatrick,
+        <br />
+        Vanderbilt University, Nashville, TN.</div>
+		</div>
+		<div id="secondaryContent">
+		<h3>
+			  <a href="index.html">[home]
+     </a> </h3>
+			<p>&nbsp;</p>
+
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="footer">
+		<p><a href="http://www.kitware.com"><img src="images/KitwareLogo.jpg" border="0" /></a><br/>Copyright &copy; <?echo date('Y'); ?> </p>
+	</div>
+</div>
+
+<div style="font-size: 0.8em; text-align: center; margin-top: 1.0em; margin-bottom: 1.0em;"> </div>
+</body>
+</html>

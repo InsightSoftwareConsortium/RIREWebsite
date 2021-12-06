@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>The Retrospective Image Registration Evaluation Project</title>
+<meta name="keywords" content="Retrospective,Image,Registration,Evalutation,Project,NLM,Kitware" />
+<meta name="description" content="The Retrospective Image Registration Evaluation Project" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div id="outer">
+	<div id="header">
+	 <h2>&nbsp;</h2>
+		<h1><a href="index.html">The Retrospective Image Registration Evaluation Project</a></h1>
+		<h2>R.I.R.E</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="first"><a href="index.html" accesskey="1" title="">Home</a></li>
+			<li><a href="information.html" accesskey="2" title="">Information</a></li>
+			<li><a href="download.html" accesskey="3" title="">Download</a></li>
+			<li><a href="view_results.html" accesskey="4" title="">Results</a></li>
+			<li><a href="myprofile.html" accesskey="5" title="">Login</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="primaryContentContainer">
+			<div id="primaryContent">
+				<h2>Protocols for accesssing information </h2>
+				<h3>				  Two files = one image </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;">				</span></b><span style=""><o:p></o:p></span><span style="">Each image will consist of two files, a header file and a data file. The header is in ASCII with lines separated by line feeds.<span style="">  </span>The data file is a stream of two-byte two's complement integers.<span style="">  </span>The two file names will be always be as follows:</span><span style=""><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">header.ascii<o:p></o:p><br />
+				</span><span style="">image.bin<o:p></o:p><br />
+				<br />
+				</span><span style=""><o:p></o:p></span><span style="">The suffix “ascii” indicates that the file is a text file coded in ASCII. The suffix “bin” indicates that the file is a stream of binary numbers. The numbers are encoded as two-byte two's complement integers.<span style="">  </span>The byte order is big-endian.<span style="">  </span>This order is the standard for Sun workstations. Odd and even bytes must be interchanged for DEC VAX computers and Intel 80x86 microprocessors.<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">An additional file named</span><span style=""><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">   </span>image.bin.Z <o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">will be included for convenience.<span style="">  </span>The contents of image.bin.Z are redundant: It contains a compressed version of image.bin.<span style="">  </span>It is produced with the UNIX “compress” command.<span style="">  </span>The UNIX compression algorithm is lossless and can be reversed with the UNIX “uncompress” command.<span style="">  </span>This file is provided so that file transfer time can be reduced for those with access to the UNIX compression programs.<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>The voxel file </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">The “.bin” file contains the voxels in row-column-slice order, meaning that the first voxel in the file should be displayed in the upper left of<span style="">  </span>the screen, the second voxel should be displayed to the right of the first,<span style="">  </span>etc., until the end of the row is reached.<span style="">  </span>The next voxel should be displayed below the first voxel of the file, the next to the right of that, etc., until <o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">one complete slice is displayed.<span style="">  </span>The first voxel of the second slice follows the last voxel of the first slice, etc.<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span><span style="">The number of rows, columns, and slices is given in header.ascii.<span style="">  </span>If the number of rows, columns, and slices were, for example, 3, 5, 2, the 30 voxels of the image.bin file (each of which occupies two bytes) should be displayed as follows:<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">Display of slice 1---<o:p></o:p><br />
+				</span><span style=""><span style=""> </span>1<span style="">    </span>2<span style="">    </span>3<span style="">    </span>4<span style="">    </span>5<br />
+				</span><span style=""><span style=""> </span>6<span style="">    </span>7<span style="">    </span>8<span style="">    </span>9<span style="">  </span>10<o:p></o:p><br />
+				</span><span style="">11<span style="">  </span>12<span style="">  </span>13<span style="">  </span>14<span style="">  </span>15</span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">Display of slice 2---</span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">16<span style="">  </span>17<span style="">  </span>18<span style="">  </span>19<span style="">  </span>20<o:p></o:p><br />
+				</span><span style="">21<span style="">  </span>22<span style="">  </span>23<span style="">  </span>24<span style="">  </span>25<o:p></o:p><br />
+				</span><span style="">26<span style="">  </span>27<span style="">  </span>28<span style="">  </span>29<span style="">  </span>30</span><span style=""><span style="">     </span><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">(Once this canonical display orientation is understood, other display orientations are reasonable as long as they represent proper rotations from this basic orientation.)</span><span style=""><o:p></o:p></span></p>
+				<h3>The Header file </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Our header format is an adaptation of the guidelines outlined in the appendix to Technical Report No. CUCS-369-88, </span><st1:place><st1:city><span style="">Columbia University</span></st1:city><span style="">, </span><st1:state><span style="">New York</span></st1:state></st1:place><span style="">, NY 10027 by G. Q. Maguire, Jr. and M. E. Noz.<span style="">  </span>That document provides more than one standard.<span style="">  </span>We have chosen to follow most closely the recommended ACR-NEMA Definitions in Section 3, which in turn conform with ACR/NEMA Standards Publication No. 300-1988: “Digital Imaging and Communications”, also known as the “DICOM” standard.<span style="">  </span>We have altered the standard by adding the number of slices to the “Image Presentation Information” group (see below) so that the format can accommodate the third dimension of our volume images.<o:p></o:p></span><span style=""><o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>The information groups</h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Each header is organized into five groups.<span style="">  </span>Each group is organized into a set of keyword-value pairs separated by “:=”.<span style="">  </span>The first keyword in every group is “Group length”:<o:p></o:p> </span><span style="">Group length := n<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">Here n is the number of bytes following that line and extending through the rest of the entries in that group.<span style="">  </span>Each group is followed by a blank line (one extra line feed).</span><span style=""><o:p></o:p></span><span style="">All five groups are present in each image header, and they occur in the same order as follows:<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">1. Identifying Information<br />
+				</span><span style="">2. Patient Information<o:p></o:p><br />
+				</span><span style="">3. Acquisition Information<o:p></o:p><br />
+				</span><span style="">4. Relationship Information<o:p></o:p><br />
+				</span><span style="">5. Image Presentation Information<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">These group labels are not included explicitly in the header.<span style="">  </span>They are listed as types of information prescribed in Table 4-1 of the ACR/NEMA standard.<span style="">  </span>(The guidelines of Maguire and Noz deal with these types in subsections 3.3 through 3.6.)<o:p></o:p></span><span style=""><o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>Detailed group descriptions </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Each group name is terminated with a colon here, but with := in the header file.<span style="">  </span>Sets of possible field values are given within braces ({}) here. Descriptions of the meaning of the field are begun here with a double slash (//).<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>Identifying Information</h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Group length: //The number of bytes in the rest of the group<br />
+				</span><span style="">Length to end: //the number of bytes in the rest of the header file<o:p></o:p><br />
+				</span><span style="">Modality: {MR, CT, PET}<o:p></o:p><br />
+				</span><span style="">Manufacturer: {Siemens} //the manufacturer of the scanners in this project<o:p></o:p><br />
+				</span><span style="">Institution ID: {</span><st1:place><st1:placename><span style="">Vanderbilt</span></st1:placename><span style=""> </span><st1:placetype><span style="">University</span></st1:placetype></st1:place><span style="">} //the source of the images<o:p></o:p><br />
+				</span><span style="">Comments: //a message to serve as a reminder that the images may not used outside this project.<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>Patient Information </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Group length: //The number of bytes in the rest of the group<o:p></o:p><br />
+				</span><span style="">Other Patient ID: //a serial number used only for this project.<o:p></o:p><br />
+				</span><span style=""><span style=""> </span>Comments: //a message stating that “Other patient ID” is unrelated to the actual patient ID.<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>Acquisition Information </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Group length: //The number of bytes in the rest of the group<o:p></o:p><br />
+				    </span><span style="">Contrast/Bolus agent: //The value is “none” if there is no contrast agent.<o:p></o:p><br />
+				    </span><span style="">Scanning sequence: {SE} //This line is present only for MR; only SE, meaning “Spin Echo”, is used in this project.<o:p></o:p><br />
+				    </span><span style="">Radionuclide: //This line is present only for PET; it is the name of the isotope administered.<o:p></o:p><br />
+				    </span><span style="">Slice thickness: //The units are millimeters.<o:p></o:p><br />
+				    </span><span style="">KVP: //This line is present only for CT; it is the tube voltage.<o:p></o:p><br />
+				    </span><span style="">Repetition time: //This line is present only for MR; it is TR in milliseconds.<o:p></o:p><br />
+				    </span><span style="">Echo time: //This line is present only for MR; it is TE in milliseconds.<o:p></o:p><br />
+				    </span><span style="">Number of averages: //This line is present only for MR; it is the number of acquisitions without change in any parameters (to reduce noise).<o:p></o:p><br />
+				    </span><span style="">Gantry tilt: //This line is present only for CT and PET; machine's tilt.<o:p></o:p><br />
+				    </span><span style="">Exposure time: //This line is present only for CT; units are milliseconds.<o:p></o:p><br />
+				    </span><span style="">Exposure rate: //This line is present only for CT; units are milliamperes.<o:p></o:p><br />
+				    </span><span style="">Comments: {T1,PD,T2} //This line is present only for MR; it labels the image as T1, PD, or T2 weighted (as determined by the TR and TE values).<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>Relationship Information </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Group length: //The number of bytes in the rest of the group<o:p></o:p><br />
+				</span><span style="">Study: {1, 2, 3, 4} //a set of series of one modality<o:p></o:p><br />
+				</span><span style="">Series: {1, 2, 3} //a set of logically related acquisitions<o:p></o:p><br />
+				</span><span style="">Acquisition: {1, 2} //a single continuous gathering of data over time<o:p></o:p><br />
+				</span><span style="">Patient Orientation: {L : P : H} //indicates three directions within the patient: toward the Left, toward the Posterior, and toward the top of the Head, respecti</span><st1:personname><span style="">vel</span></st1:personname><span style="">y.<span style="">  </span>The</span><span style=""><span style="">  </span>same orientation will be used throughout this project.<o:p></o:p><br />
+				</span><span style="">Source image IDs: //This line is present only for rectified MR; it gives the Study\Series\Acquisition for each of two images, one with forward and one with reverse readout </span><span style="">gradients.<span style="">  </span>These are the two images that are used to construct this image.<span style="">  </span><o:p></o:p><br />
+				</span><span style="">Modified image description: {Rectified image} //This line is present only for rectified MR.<o:p></o:p><br />
+				</span><span style="">Comments: //This line is present only for rectified MR; it states that the image is a composition of two acquisitions.<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style="">Only the following nine combinations of Study\Series\Acquisition will be present in the database of images in this project:<o:p></o:p><br />
+				  <br />
+				</span><span style=""><o:p></o:p></span><span style="">1\1\1 = CT<o:p></o:p><br />
+				<br />
+				</span><span style=""><o:p></o:p></span><span style="">2\1\1 = PET<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">3\1\1 = MR-T1<o:p></o:p><br />
+				</span><span style="">3\2\1 = MR-PD<o:p></o:p><br />
+				</span><span style="">3\3\1 = MR-T2<o:p></o:p><br />
+				<br />
+				</span><span style=""><o:p></o:p></span><span style="">4\1\1 = Rectified MR-T1<o:p></o:p><br />
+				</span><span style="">4\2\1 = Rectified MR-PD<o:p></o:p><br />
+				</span><span style="">4\3\1 = Rectified MR-T2<o:p></o:p><br />
+				<br />
+				</span><span style=""><o:p></o:p></span><span style="">5\1\1 = MP-RAGE<o:p></o:p><br />
+				<br />
+				</span><span style=""><o:p> </o:p></span><span style="">(The registration tasks will be to register each of the first two image types, CT and PET, to each of the last six MR types for a total of 12 registrations per patient.)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">In the value field of Patient Orientation three letters are given. These three letters indicate the orientation of the patient relative to the volume image.<span style="">  </span>The first letter indicates the direction that corresponds to an increasing column index (along a row to the right on the display screen according to the canonical display described above).<span style="">  </span>The second letter indicates the direction that corresponds to an increasing row index (down a column in the canonical display).<span style="">  </span>The third letter indicates the direction that corresponds to an increasing slice number.<span style="">  </span><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">The 30 voxel file described in Section 2 provides a convenient example. We assume that the Patient Orientation field is L : P : H.<span style="">  </span>Then the view displayed above is transverse as seen from the patient's feet with the patient's nose up,<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span><span style="">Display of slice 1, which is closer to the bottom of the feet---<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span><span style=""><span style="">               </span>Anterior<o:p></o:p><br />
+				</span><span style=""><span style=""> </span>----------------------------<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">           </span>|<span style="">   </span>1<span style="">     </span>2<span style="">     </span>3<span style="">     </span>4<span style="">     </span>5 |<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">  </span>Right |<span style="">   </span>6<span style="">     </span>7<span style="">     </span>8<span style="">     </span>9<span style="">   </span>10 | Left<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">           </span>| 11<span style="">   </span>12<span style="">   </span>13<span style="">   </span>14<span style="">   </span>15 |<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>----------------------------<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">                </span>Posterior<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">  </span>Display of slice 2, which is closer to the top of the head---<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">               </span>Anterior<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>---------------------------<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">           </span>| 16<span style="">   </span>17<span style="">   </span>18<span style="">   </span>19<span style="">   </span>20 |<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">  </span>Right | 21<span style="">   </span>22<span style="">   </span>23<span style="">   </span>24<span style="">   </span>25 | Left<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">           </span>| 26<span style="">   </span>27<span style="">   </span>28<span style="">   </span>29<span style="">   </span>30 |<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">         </span>--------------------------<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""></span><span style=""><o:p></o:p></span><span style="">(In addition to L, P, and H, the following letters are defined in the ACR-NEMA standard: R for “toward the Right”, A for “toward the Anterior”, F for “toward the bottom of the Feet”.)<o:p></o:p></span><span style=""><o:p></o:p></span></p>
+				<h3>Image Presentation Information </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span> <span style=""><span style="">   </span>Image dimensions := {3} //Always 3 in this project.<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">                      </span>Rows := {128,256,512} //Number of rows in each slice<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">                 </span>Columns := {128,256,512} //Number of columns in each slice<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">                      </span>Slices := //Number of slices in the volume <o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">                 </span>Pixel size := 1.250000 : 1.250000 //The units are millimeters.<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">  </span>Compression code := //The .Z extension indicates compression via the Unix compress command, employs adaptive Lempel-Ziv coding.<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">          </span>Bits allocated := {16} //Before compression<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">         </span><span style="">     </span>Bits stored := {16} //Before compression<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">                   </span>High bit := {15}<span style="">  </span>//Most significant bit; <o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style=""> </span>Pixel representation := {1}<span style="">  </span>//1 means two's complement integer<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style=""> </span>Smallest pixel value := -65,536 //equals -2^16<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">  </span>Largest pixel value := +65,535 //equals +2^16 - 1<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span><span style="">(If the reader is not interested in the ACR-NEMA guidelines per se, s/he need read no further.)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p></o:p></span><span style="">While it is not crucial to this project, it may be of interest to know that the numbering used in the Relationship Information is an adaptation of the ACR-NEMA guidelines.<span style="">  </span>As shown in Figure 1 on the next page, the labels are hierarchically related via a hierarchy defined in those guidelines.<span style="">  </span>(Those familiar with this hierarchy will notice that we have not followed the guidelines strictly.<span style="">  </span>The guidelines dictate that the subclass, “Image” should be included below the class Acquisition.<span style="">  </span>We have omitted this finest division for simplicity.)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span><span style="">The eight image types that are listed above (i.e., the ones that occur in the database) are denoted in the figure by asterisks (*).<span style="">  </span>The images without asterisks are additional MR images (with reversed readout gradients) that are required for the production of the rectified MR images.<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span><span style="">The values for Study\Series\Acquisition are given in brackets with each acquisition.<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p> </o:p></span><span style="">Patient--<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|--Study 1--(CT)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 1--<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|--Acquisition 1* [1\1\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">           </span><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">      </span><span style="">  </span>|<span style="">           </span><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|--Study 2--(PET)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 1--<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|--Acquisition 1* [2\1\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|--Study 3--(MR)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 1--(T1)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|--Acquisition 1* (Forward gradient) [3\1\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|--Acquisition 2<span style="">  </span>(Reverse gradient) [3\1\2]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 2--(PD)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|--Acquisition 1* (Forward gradient) [3\2\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">   </span><span style="">       </span>|<span style="">           </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|--Acquisition 2 (Reverse gradient) [3\2\2]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 3--(T2)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|--Acquisition 1* (Forward gradient) [3\3\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|--Acquisition 2 (Reverse gradient) [3\3\2]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">           </span><o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|--Study 4--(Rectified images derived as composites from Study 2)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">     </span><span style="">   </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 1--(T1)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|--Acquisition 1* (from 3\1\1 and 3\1\2)<span style="">  </span>[4\1\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 2--(PD)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|--Acquisition 1* (from 3\2\1 and 3\2\2)<span style="">  </span>[4\2\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 3--(T2)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">                      </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span><span style="">            </span>|--Acquisition 1* (from 3\3\1 and 3\3\2)<span style="">  </span>[4\3\1]<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|--Study 5--(MP-RAGE)<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|--Series 1--<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|<o:p></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><span style="">        </span>|<span style="">          </span>|<span style="">           </span>|--Acquisition 1* [5\1\1]<o:p></o:p></span><span style=""><o:p></o:p></span><b style=""><span style=""><o:p></o:p></span></b></p>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="">FIGURE 1:<span style="">  </span>The hierarchical relationship of Study, Series, and Acquisition number and their meanings.<span style="">  </span><o:p></o:p></span></b></p>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="">Only the acquisitions with asterisks are included in the project.</span></b></p>
+			</div>
+		</div>
+		<div id="secondaryContent">
+		<h3>
+			  <a href="index.html">[home]
+     </a> </h3>
+			<p>&nbsp;</p> 
+		
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="footer">
+		<p>Copyright &copy; 2007 <a href="http://www.kitware.com">Kitware Inc</a>.</p>
+	</div>
+</div>
+
+<div style="font-size: 0.8em; text-align: center; margin-top: 1.0em; margin-bottom: 1.0em;"> </div>
+</body>
+</html>

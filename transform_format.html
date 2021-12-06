@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>The Retrospective Image Registration Evaluation Project</title>
+<meta name="keywords" content="Retrospective,Image,Registration,Evalutation,Project,NLM,Kitware" />
+<meta name="description" content="The Retrospective Image Registration Evaluation Project" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div id="outer">
+	<div id="header">
+	 <h2>&nbsp;</h2>
+		<h1><a href="index.html">The Retrospective Image Registration Evaluation Project</a></h1>
+		<h2>R.I.R.E</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="first"><a href="index.html" accesskey="1" title="">Home</a></li>
+			<li><a href="information.html" accesskey="2" title="">Information</a></li>
+			<li><a href="download.html" accesskey="3" title="">Download</a></li>
+			<li><a href="view_results.html" accesskey="4" title="">Results</a></li>
+			<li><a href="myprofile.html" accesskey="5" title="">Login</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="primaryContentContainer">
+			<div id="primaryContent">
+				<h2>Protocol for Communicating Registration Transformations </h2>
+				<h3> Pairs	of	Image	Volumes	to be Registered </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;">				</span></b><span style=""><o:p></o:p></span>For each patient included in the study there will be one CT and/or PET image volume and a subset of seven MR volumes (MP-RAGE; spin-echo T1, PD, T2 and the rectified versions of these three).</p>
+				<p class="MsoNormal" style="text-align: justify;"><o:p></o:p>For each of these patients, each team of investigators will determine, based on their retrospective registration, a transformation from the CT volume, if present, to each of the MR volumes, and from the PET volume, if present, to each of the MR volumes.<span style="">  </span>They may also determine a transformation from the MR MP-RAGE volume to the MR T2 weighted volume, in the cases where both of these are present. All registration pairs are indicated by the directed paths in the schematic below:</p>
+				<p class="MsoNormal" style="text-align: justify;"><span style=""><o:p><span style=""><img src="images/image006.jpg" v:shapes="_x0000_i1026" border="0" height="274" width="548" /></span></o:p></span></p>
+				<p class="MsoNormal" style="text-align: justify;">A given transformation maps points from one volume on the left, which we will call the “From” image, to one volume on the right, which we will call the “To” image.<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">Each transformation will be compared with a “gold standard” transformation for the corresponding From-To image pair.<span style="">  </span>The gold standard will be a rigid body transformation.<span style="">  </span>Thus it is expected that the transformations submitted by each team will also be rigid body transformations.<span style=""><o:p><span style="">				  </span></o:p></span></p>
+				<h3>The Transformations Parameters </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span>There are many ways to specify a rigid body transformation, such as (a) three angles (e.g., the Euler angles) plus one translation vector, (b) one orthogonal three-by-three matrix plus one translation vector, (c) a <span class="SpellE">quaternian</span> plus one translation vector, (d) three translation vectors for each of three non-collinear points, and others. Additional implicit parameters must be agreed upon in advance or communicated with each of these methods: the position of the origin of the coordinate reference system and the directions of the x, y, and z axes. Additionally, methods (a) through (c) require the specification of the position of the center of rotation, and method (d) requires the specification of the positions of the three points.<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">In choosing our method of communication, we want to minimize the chances for miscommunication and error. Therefore, we have chosen a set of parameters that is easy to understand, is easy to calculate, includes redundancy, and has limited error propagation. The redundancy provides us a chance to check for errors without compromising the blindedness of our study. The error check is based on the assumption of rigid body motion. The error propagation refers to the relationship between the inevitable round-off errors associated with specifying parameters via a finite number of symbols and the resulting positional error produced at every point within the image volume.<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">Our method is as follows:<span style="">  </span>A transformation will be specified by the set of original positions and transformed positions for each of the centers of the voxels at the eight corners of the “From” volume.<span style="">  </span>Each position will be specified by its three coordinates, x, y, and z, in millimeters.<span style="">  </span>Thus a transformation will be specified by 48 numbers: three numbers for the original position and three for the transformed position for each of eight positions.<span style="">  </span>We call the coordinates of a transformed position, <span class="SpellE">new_x</span>, <span class="SpellE">new_y</span>, and <span class="SpellE">new_z</span>.<span style="">  </span>Each number will be specified in fixed point with four digits to the right of the decimal place (to 1/10,000 millimeter).<span style="">  </span>An example of a complete specification is provided in the section  below.<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">The origin of the coordinate reference system lies at the center of the first voxel in the voxel file. That file is described in Section 3.2 of the document PROTOCOLS FOR ACCESSING INFORMATION, Version 1.0 November 15, 1994. The x axis lies along the centers of the first row of voxels in the voxel file and is directed from the first voxel to the last on that row, the y axis lies along the centers of the first column and is directed from the first voxel to the last voxel on that column, and the z axis is perpendicular to the x and y axes and directed in the right-hand sense---from the first voxel in the file toward the first voxel in the last slice.<span style=""> </span><o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">Consider for example the case described in the PROTOCOLS document, in which the number of rows, columns, and slices are, respecti<st1:personname>vel</st1:personname>y 3, 5, and 2.<span style="">  </span>As described there, the 30 voxels of the voxel file would be displayed as follows:<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">Display of slice 1---<br />
+				  1<span style="">  </span><span style="">   </span>2<span style="">    </span>3<span style="">    </span>4<span style="">    </span>5<br />
+				  6<span style="">     </span>7<span style="">    </span>8<span style="">    </span>9<span style="">  </span>10<br />
+				  <span class="GramE">11<span style="">  </span>12</span><span style="">  </span>13<span style="">  </span>14<span style="">  </span>15<br />
+				  <br />
+				  <o:p></o:p>Display of slice 2--<br />
+				  <span class="GramE">16<span style="">  </span>17</span><span style="">  </span>18<span style="">  </span>19<span style="">  </span>20<br />
+				  <span class="GramE">21<span style="">  </span>22</span><span style="">  </span>23<span style="">  </span>24<span style="">  </span>25<br />
+				  <span class="GramE">26<span style="">  </span>27</span><span style="">  </span>28<span style="">  </span>29<span style="">  </span>30</p>
+				<p class="MsoNormal" style="text-align: justify;">The origin of the coordinate system lies at the center of voxel 1.<span style=""> <br />
+				</span>The x axis is directed from the center of voxel 1 to the center of voxel 5.<span style=""> <br />
+				</span>The y axis is directed from the center of voxel 1 to the center of voxel 11.<span style=""> <br />
+				</span>The z axis is directed from the center of voxel 1 to the center of voxel 16.<br />
+				(Note that the resultant coordinate system is right-handed.)<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">It should perhaps be emphasized that all coordinates are in units of millimeters, as opposed to numbers of voxels or pixels. The conversion from voxel dimensions to millimeters should be done independently of the transformation that is being communicated.<span style="">  </span>That conversion should be based on the pixel dimensions and slice thicknesses given in the <span class="SpellE">header.ascii</span> files associated with each <span class="SpellE">image.bin</span> file (see the PROTOCOLS document).<span style="">  </span>Since all coordinates are in the same units, there is no need to include scale factors in the transformation to account for differences in voxel size.<span style="">  </span>Indeed it would be wrong to do so.<span style=""><o:p></o:p></span></p>
+				<h3>Template for the Transformation Parameters </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span><span style="">Our header format is an adaptation of the guidelines outlined in the appendix to Technical Report No. CUCS-369-88, </span><st1:place><st1:city><span style="">Columbia University</span></st1:city><span style="">, </span><st1:state><span style="">New York</span></st1:state></st1:place><span style="">, NY 10027 by G. Q. Maguire, Jr. and M. E. Noz.<span style="">  </span>That document provides more than one standard.<span style="">  </span>We have chosen to follow most closely the recommended ACR-NEMA Definitions, which in turn conform with ACR/NEMA Standards Publication No. 300-1988: “Digital Imaging and Communications”, also known as the “DICOM” standard.<span style="">  </span>We have altered the standard by adding the number of slices to the “Image Presentation Information” group (see below) so that the format can accommodate the third dimension of our volume images.<o:p></o:p></span><span style=""><o:p></o:p></span><span style=""><o:p><br />
+				  <br />
+				</o:p></span>-----------------------------------------------------------------------------------<br />
+				Transformation Parameters</p>
+				<p class="MsoNormal" style="text-align: justify;"><o:p></o:p>Investigator(s): A. B. <span class="SpellE">Cee</span>, D. E. <span class="SpellE">Eff</span>, G. H. Eye, J. K. Ell, M. N. Oh, and P. Q. Arr<br />
+				  Site: <st1:place><st1:placename>Extra</st1:placename> <st1:placetype>University</st1:placetype></st1:place>, Somewhere, New Country</p>
+				<p class="MsoNormal" style="text-align: justify;"><o:p></o:p>Method: 1<br />
+				  Date: 12 December 1994<br />
+				  Patient number: 001<br />
+				  From: CT<br />
+				  To: MR-T1</p>
+				<p class="MsoNormal" style="text-align: justify;"><o:p></o:p>Point<span style="">      </span>x<span style="">                 </span>y<span style="">                </span>z<span style="">           </span><span class="SpellE">new_x</span><span style="">        </span><span class="SpellE">new_y</span><span style="">         </span><span class="SpellE">new_z</span></p>
+				<p class="MsoNormal" style="text-align: justify;"><o:p></o:p>1<span style="">         </span>0.0000<span style="">        </span><span class="SpellE">0.0000</span><span style="">      </span><span class="SpellE">0.0000</span><span style="">       </span>6.1328<span style="">     </span>-33.4248<span style="">    </span>-20.2711<br />
+				  2<span style="">     </span>333.9870<span style="">        </span>0.0000<span style="">      </span><span class="SpellE">0.0000</span><span style="">   </span>339.1179<span style="">     </span>-60.8117<span style="">    </span>-19.2691<br />
+				  3<span style="">         </span>0.0000<span style="">    </span>333.9870<span style="">      </span>0.0000<span style="">     </span>33.5198<span style="">    </span>299.5603<span style="">    </span>-16.2633<br />
+				  4<span style="">     </span>333.9870<span style="">    </span><span class="SpellE">333.9870</span><span style="">      </span>0.0000<span style="">   </span>366.5048<span style="">    </span>272.1734<span style="">    </span>-15.2613<br />
+				  5<span style="">         </span>0.0000<span style="">       </span><span class="SpellE">0.0000</span><span style="">   </span>112.0000<span style="">       </span>5.6848<span style="">     </span>-34.7688<span style="">     </span>91.7289<br />
+				  6<span style="">     </span>333.9870<span style="">       </span>0.0000<span style="">   </span>112.0000<span style="">   </span>338.6699<span style="">     </span>-62.1557<span style="">     </span>92.7309<br />
+				  7<span style="">     </span><span style="">    </span>0.0000<span style="">   </span>333.9870<span style="">   </span>112.0000<span style="">     </span>33.0718<span style="">    </span>298.2163<span style="">     </span>95.7367<br />
+				  8<span style="">     </span>333.9870<span style="">   </span><span class="SpellE">333.9870</span><span style="">   </span>112.0000<span style="">   </span>366.0568<span style="">    </span>270.8293<span style="">     </span>96.7387<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">(All distances are in millimeters.)<br />
+				  -----------------------------------------------------------------------------------<span style=""><o:p>				  </o:p></span></p>
+				<h3>Error Checking </h3>
+				<p class="MsoNormal" style="text-align: justify;"><b style=""><span style="color: maroon;"> </span></b><span style=""><o:p></o:p></span>When we receive a set of transformation parameters we will check them to determine whether they do in fact correspond to rigid body motion.<span style="">  </span>We will accomplish that by calculating the rigid body motion that brings the original positions most nearly into coincidence with the new positions in the least-squares sense. (We employ the standard technique of performing the singular-value decomposition of the cross-covariance matrix to determine the optimal rotation matrix.)<span style="">  </span>If the transformation is indeed a rigid body transformation, the root-mean-square (RMS) error should be on the order of the errors in the parameters.<span style="">  </span>The errors in the parameters can be made as low as 0.0001 mm, but otherwise are controlled by the investigators.<span style="">  </span>(For example, if a multiplication by a rotation matrix is involved, the accuracy is limited by the number of significant digits of the elements of the matrix.)<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">We wish to keep such errors an order of magnitude below the effects that we are measuring, namely positional differences between the retrospective registration and the gold standard prospective registration.<span style="">  </span>Since the gold standard is itself in error by at least 0.1 mm, we will consider any RMS error of less than 0.01 mm to be acceptable.<span style="">  </span>If the error is 0.01 mm or greater, we will alert the investigators and give them the option of checking for errors and resubmitting the transformation.<span style="">  </span>We emphasize that this procedure does not compromise the blindedness of the study, since this error is unrelated to the registration error that we are attempting to assess and does not involve a comparison with the gold standard registration.<span style="">  </span>It is merely an assessment of whether or not the submitted transformation is a rigid body transformation.<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">A benefit of having eight points instead of the minimum of three is that it greatly reduces the probability that erroneous numbers will produce a rigid transformation.<span style="">  </span>We chose the particular number eight because it is larger than three and it equals the number of corners.<span style="">  </span>The use of all the corners has a nice property regarding error propagation.<span style="">  </span>Any error in the specification of the corner positions will produce errors in the transformation that will affect the interior positions.<span style="">  </span>For any linear <span class="SpellE">interpolant</span> (including in particular rigid body motion) the error that propagates from the corners to the interior of the volume will be no greater than the largest error at the corners.<span style="">  </span>Thus, each site can be sure that the rigid body transformation that they specify is in fact equal throughout the volume to the one that they have derived to within the accuracy of the corner positions.<o:p></o:p></p>
+				<p class="MsoNormal" style="text-align: justify;">In order to prevent, as much as possible, errors in the conversion from the coordinate and transform representation system used by investigators and that used for data submission, on receipt of a transformation table we will generate a reformatted image volume according to the transformation specified by the table. These images will be made accessible only to the investigator(s) who submitted the transform: their location and access method will be given to the submitting site. We suggest that all investigators check the reformatted volumes produced by their registration against the volume we provide, to insure that the intended transformation has been given to us.<span style=""><o:p></o:p></span></p>
+				</div>
+		</div>
+		<div id="secondaryContent">
+		<h3>
+			  <a href="index.html">[home]
+     </a> </h3>
+			<p>&nbsp;</p> 
+		
+		</div>
+				<script type="text/javascript">
+google_ad_client = "pub-8240771869361540";
+google_ad_slot = "1074000034";
+google_ad_width = 200;
+google_ad_height = 200;
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+		<div class="clear"></div>
+	</div>
+	<div id="footer">
+		<p>Copyright &copy; 2007 <a href="http://www.kitware.com">Kitware Inc</a>.</p>
+	</div>
+</div>
+
+<div style="font-size: 0.8em; text-align: center; margin-top: 1.0em; margin-bottom: 1.0em;"> </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-701656-3");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
